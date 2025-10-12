@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : BasicEntity
+public class PlayerController : CharactersOnGround
 {
     public void OnMovementUp(InputAction.CallbackContext context)
     {
