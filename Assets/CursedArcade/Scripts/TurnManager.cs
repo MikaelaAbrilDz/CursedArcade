@@ -7,14 +7,14 @@ public class TurnManager : MonoBehaviour
     public List<BasicEntity> turnList = new List<BasicEntity>();
     private void Start()
     {
-        turnList.Add(FindAnyObjectByType<BasicEntity>());
+        turnList.Add(FindAnyObjectByType<PlayerController>());
         turnList.Add(null);
     }
     private void Update()
     {
         if (turnList[0] == null) PassTurn(null);
     }
-    public void PassTurn(BasicEntity turnPasser)
+    public void PassTurn(CharactersOnGround turnPasser)
     {
         turnList.Remove(turnPasser);
         turnList.Add(turnPasser);

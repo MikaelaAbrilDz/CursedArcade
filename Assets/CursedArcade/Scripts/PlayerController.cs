@@ -7,40 +7,40 @@ public class PlayerController : CharactersOnGround
     {
         TurnManager turnManager = FindAnyObjectByType<TurnManager>();
 
-        if (turnManager.turnList[0] == GetComponent<BasicEntity>() && context.performed)
+        if (turnManager.turnList[0] == GetComponent<CharactersOnGround>() && context.performed)
         {
             transform.position = CurrentChecker().sideCheckers[0].transform.position;
-            turnManager.PassTurn(GetComponent<BasicEntity>());
+            turnManager.PassTurn(GetComponent<CharactersOnGround>());
         }
     }
     public void OnMovementRight(InputAction.CallbackContext context)
     {
         TurnManager turnManager = FindAnyObjectByType<TurnManager>();
 
-        if (turnManager.turnList[0] == GetComponent<BasicEntity>() && context.performed)
+        if (turnManager.turnList[0] == GetComponent<CharactersOnGround>() && context.performed)
         {
             transform.position = CurrentChecker().sideCheckers[1].transform.position;
-            turnManager.PassTurn(GetComponent<BasicEntity>());
+            turnManager.PassTurn(GetComponent<CharactersOnGround>());
         }
     }
     public void OnMovementDown(InputAction.CallbackContext context)
     {
         TurnManager turnManager = FindAnyObjectByType<TurnManager>();
 
-        if (turnManager.turnList[0] == GetComponent<BasicEntity>() && context.performed)
+        if (turnManager.turnList[0] == GetComponent<CharactersOnGround>() && context.performed)
         {
             transform.position = CurrentChecker().sideCheckers[2].transform.position;
-            turnManager.PassTurn(GetComponent<BasicEntity>());
+            turnManager.PassTurn(GetComponent<CharactersOnGround>());
         }
     }
     public void OnMovementLeft(InputAction.CallbackContext context)
     {
         TurnManager turnManager = FindAnyObjectByType<TurnManager>();
 
-        if (turnManager.turnList[0] == GetComponent<BasicEntity>() && context.performed)
+        if (turnManager.turnList[0] == GetComponent<CharactersOnGround>() && context.performed)
         {
             transform.position = CurrentChecker().sideCheckers[3].transform.position;
-            turnManager.PassTurn(GetComponent<BasicEntity>());
+            turnManager.PassTurn(GetComponent<CharactersOnGround>());
         }
     }
 }

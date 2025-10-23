@@ -3,7 +3,7 @@ using UnityEngine;
 public class Checker : MonoBehaviour
 {
     [SerializeField] LayerMask checkerMask;
-    BasicEntity positioned;
+    public BasicEntity positioned;
     public Checker[] sideCheckers = new Checker[4];
     void Awake()
     {
