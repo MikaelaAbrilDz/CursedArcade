@@ -7,9 +7,9 @@ public class Checker : MonoBehaviour
     public Checker[] sideCheckers = new Checker[4];
     void Awake()
     {
-        SetSideChckers();
+        SetSideCheckers();
     }
-    private void SetSideChckers()
+    private void SetSideCheckers()
     {
         RaycastHit hit;
 
