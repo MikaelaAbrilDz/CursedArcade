@@ -43,4 +43,13 @@ public class PlayerController : CharactersOnGround
             turnManager.PassTurn(GetComponent<CharactersOnGround>());
         }
     }
+
+
+    public void OnHeal(InputAction.CallbackContext context)
+    {
+        if (context.started && GetComponent<Inventory>()._healthKits > 0)
+        {
+            GetComponent<PlayerStats>()._life += 20;
+        }
+    }
 }
