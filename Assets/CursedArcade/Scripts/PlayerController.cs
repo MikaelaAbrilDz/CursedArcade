@@ -3,78 +3,56 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : CharactersOnGround
 {
-    private SmoothMovement smoothMovement;
-
-    void Awake()
-    {
-        
-        smoothMovement = GetComponent<SmoothMovement>();
-
-        if (smoothMovement == null)
-        {
-            Debug.LogWarning("No se encontró el componente SmoothMovement en el jugador.");
-        }
-    }
-
-    
     public void OnMovementUp(InputAction.CallbackContext context)
     {
-        TryMove(0, context);
+        TurnManager turnManager = FindAnyObjectByType<TurnManager>();
+
+        if (turnManager.turnList[0] == GetComponent<CharactersOnGround>() && context.performed)
+        {
+            Move(0);
+            turnManager.PassTurn(GetComponent<CharactersOnGround>());
+        }
     }
 
     public void OnMovementRight(InputAction.CallbackContext context)
     {
-        TryMove(1, context);
+        TurnManager turnManager = FindAnyObjectByType<TurnManager>();
+
+        if (turnManager.turnList[0] == GetComponent<CharactersOnGround>() && context.performed)
+        {
+            Move(1);
+            turnManager.PassTurn(GetComponent<CharactersOnGround>());
+        }
     }
 
     public void OnMovementDown(InputAction.CallbackContext context)
     {
-        TryMove(2, context);
+        TurnManager turnManager = FindAnyObjectByType<TurnManager>();
+
+        if (turnManager.turnList[0] == GetComponent<CharactersOnGround>() && context.performed)
+        {
+            Move(2);
+            turnManager.PassTurn(GetComponent<CharactersOnGround>());
+        }
     }
 
     public void OnMovementLeft(InputAction.CallbackContext context)
     {
-        TryMove(3, context);
+        TurnManager turnManager = FindAnyObjectByType<TurnManager>();
+
+        if (turnManager.turnList[0] == GetComponent<CharactersOnGround>() && context.performed)
+        {
+            Move(3);
+            turnManager.PassTurn(GetComponent<CharactersOnGround>());
+        }
     }
 
-    
-    void TryMove(int directionIndex, InputAction.CallbackContext context)
+    public void OnHeal(InputAction.CallbackContext context)
     {
-        
-        if (!context.performed)
-            return;
-
-        
-        TurnManager turnManager = FindAnyObjectByType<TurnManager>();
-        if (turnManager == null)
+        if (context.started && GetComponent<Inventory>()._healthKits > 0)
         {
-            Debug.LogError("No se encontró el TurnManager en la escena.");
-            return;
+            GetComponent<PlayerStats>()._life += 20;
         }
-
-        
-        if (turnManager.turnList[0] != GetComponent<BasicEntity>())
-            return;
-
-        
-        if (smoothMovement != null && smoothMovement.IsMoving())
-            return;
-
-        
-        var currentChecker = CurrentChecker();
-        if (currentChecker == null || currentChecker.sideCheckers == null || currentChecker.sideCheckers.Length <= directionIndex)
-        {
-            Debug.LogWarning("No hay casilla válida en esa dirección.");
-            return;
-        }
-
-        Vector3 targetPos = currentChecker.sideCheckers[directionIndex].transform.position;
-
-        
-        StartCoroutine(smoothMovement.MoveTo(targetPos));
-
-        
-        turnManager.PassTurn(GetComponent<BasicEntity>());
     }
 }
 

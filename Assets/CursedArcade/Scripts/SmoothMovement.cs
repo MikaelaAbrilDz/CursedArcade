@@ -12,6 +12,7 @@ public class SmoothMovement : MonoBehaviour
 
     public IEnumerator MoveTo(Vector3 targetPosition)
     {
+
         if (isMoving) yield break; 
         isMoving = true;
 
