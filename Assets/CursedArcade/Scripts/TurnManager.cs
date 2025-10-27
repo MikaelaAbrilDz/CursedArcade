@@ -14,7 +14,7 @@ public class TurnManager : MonoBehaviour
     {
         if (turnList[0] == null) PassTurn(null);
     }
-    public void PassTurn(CharactersOnGround turnPasser)
+    public void PassTurn(CharacterOnGround turnPasser)
     {
         turnList.Remove(turnPasser);
         turnList.Add(turnPasser);

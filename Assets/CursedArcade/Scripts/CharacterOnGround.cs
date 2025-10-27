@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CharactersOnGround : BasicEntity
+public class CharacterOnGround : BasicEntity
 {
     protected void Move(int directionIndex)
     {
