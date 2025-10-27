@@ -52,6 +52,7 @@ public class PlayerController : CharactersOnGround
         if (context.started && GetComponent<Inventory>()._healthKits > 0)
         {
             GetComponent<PlayerStats>()._life += 20;
+            GetComponent<Inventory>()._healthKits--;
         }
     }
 }
