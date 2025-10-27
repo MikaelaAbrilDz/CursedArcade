@@ -3,44 +3,78 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : CharactersOnGround
 {
+    private SmoothMovement smoothMovement;
+
+    void Awake()
+    {
+        
+        smoothMovement = GetComponent<SmoothMovement>();
+
+        if (smoothMovement == null)
+        {
+            Debug.LogWarning("No se encontró el componente SmoothMovement en el jugador.");
+        }
+    }
+
+    
     public void OnMovementUp(InputAction.CallbackContext context)
     {
-        TurnManager turnManager = FindAnyObjectByType<TurnManager>();
-
-        if (turnManager.turnList[0] == GetComponent<BasicEntity>() && context.performed)
-        {
-            transform.position = CurrentChecker().sideCheckers[0].transform.position;
-            turnManager.PassTurn(GetComponent<BasicEntity>());
-        }
+        TryMove(0, context);
     }
+
     public void OnMovementRight(InputAction.CallbackContext context)
     {
-        TurnManager turnManager = FindAnyObjectByType<TurnManager>();
-
-        if (turnManager.turnList[0] == GetComponent<BasicEntity>() && context.performed)
-        {
-            transform.position = CurrentChecker().sideCheckers[1].transform.position;
-            turnManager.PassTurn(GetComponent<BasicEntity>());
-        }
+        TryMove(1, context);
     }
+
     public void OnMovementDown(InputAction.CallbackContext context)
     {
-        TurnManager turnManager = FindAnyObjectByType<TurnManager>();
-
-        if (turnManager.turnList[0] == GetComponent<BasicEntity>() && context.performed)
-        {
-            transform.position = CurrentChecker().sideCheckers[2].transform.position;
-            turnManager.PassTurn(GetComponent<BasicEntity>());
-        }
+        TryMove(2, context);
     }
+
     public void OnMovementLeft(InputAction.CallbackContext context)
     {
-        TurnManager turnManager = FindAnyObjectByType<TurnManager>();
+        TryMove(3, context);
+    }
 
-        if (turnManager.turnList[0] == GetComponent<BasicEntity>() && context.performed)
+    
+    void TryMove(int directionIndex, InputAction.CallbackContext context)
+    {
+        
+        if (!context.performed)
+            return;
+
+        
+        TurnManager turnManager = FindAnyObjectByType<TurnManager>();
+        if (turnManager == null)
         {
-            transform.position = CurrentChecker().sideCheckers[3].transform.position;
-            turnManager.PassTurn(GetComponent<BasicEntity>());
+            Debug.LogError("No se encontró el TurnManager en la escena.");
+            return;
         }
+
+        
+        if (turnManager.turnList[0] != GetComponent<BasicEntity>())
+            return;
+
+        
+        if (smoothMovement != null && smoothMovement.IsMoving())
+            return;
+
+        
+        var currentChecker = CurrentChecker();
+        if (currentChecker == null || currentChecker.sideCheckers == null || currentChecker.sideCheckers.Length <= directionIndex)
+        {
+            Debug.LogWarning("No hay casilla válida en esa dirección.");
+            return;
+        }
+
+        Vector3 targetPos = currentChecker.sideCheckers[directionIndex].transform.position;
+
+        
+        StartCoroutine(smoothMovement.MoveTo(targetPos));
+
+        
+        turnManager.PassTurn(GetComponent<BasicEntity>());
     }
 }
+
