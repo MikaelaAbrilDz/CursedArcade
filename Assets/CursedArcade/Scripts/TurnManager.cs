@@ -4,11 +4,11 @@ using System.Collections.Generic;
 
 public class TurnManager : MonoBehaviour
 {
-    public List<BasicEntity> turnList = new List<BasicEntity>();
+    public List<CharacterOnGround> turnList = new List<CharacterOnGround>();
     private void Start()
     {
         turnList.Add(FindAnyObjectByType<PlayerController>());
-        turnList.Add(null);
+        turnList.Add(FindAnyObjectByType<EnemyAI>());
     }
     private void Update()
     {
@@ -18,5 +18,6 @@ public class TurnManager : MonoBehaviour
     {
         turnList.Remove(turnPasser);
         turnList.Add(turnPasser);
+        turnList[0].StartTurn();
     }
 }
