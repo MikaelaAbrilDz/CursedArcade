@@ -5,7 +5,7 @@ public class Checker : MonoBehaviour
     [SerializeField] LayerMask checkerMask;
     public BasicEntity positioned;
     public Checker[] sideCheckers = new Checker[4];
-    public int searched = 99;
+    public int searched = 0;
     void Awake()
     {
         SetSideCheckers();

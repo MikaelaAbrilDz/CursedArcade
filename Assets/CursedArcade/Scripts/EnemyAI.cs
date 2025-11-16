@@ -1,69 +1,70 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 public class EnemyAI : CharacterOnGround
 {
-    bool isLookingForPath = false;
-    List<List<int>> possiblePaths = new List<List<int>>();
-    public List<int> finalPath;
+    public int nextMovement; //Next movement towards target when calling CheckForPath()
     void Start()
     {
         turnManager = FindAnyObjectByType<TurnManager>();
     }
 
-    // Update is called once per frame
     public override void StartTurn()
     {
-            isLookingForPath = true;
-            CurrentChecker().searched = 0;
-            CheckForPath(CurrentChecker(), new List<int>(), 0);
-            Invoke(nameof(DecidePath), 0.15f);
-        
+        MoveTowardsPlayer();
+        turnManager.PassTurn(this);
     }
-    void DecidePath()
+    void MoveTowardsPlayer() //Uses turn to move towards the player
     {
-        isLookingForPath = false;
-        foreach (Checker checker in FindObjectsByType<Checker>(FindObjectsSortMode.None))
+        CurrentChecker().searched = 99;
+        if (CheckForPath(CurrentChecker(), 10, typeof(PlayerController)) != -1)
         {
-            checker.searched = 99;
-            //checker.GetComponentInChildren<MeshRenderer>().material.color = Color.white;
+            Move(nextMovement);
         }
-        if (possiblePaths.Count < 1)
-        {
-            turnManager.PassTurn(GetComponent<CharacterOnGround>());
-            return;
-        }
-        finalPath = new List<int>(possiblePaths[0]);
-        foreach (var path in possiblePaths)
-        {
-            if (path.Count < finalPath.Count) finalPath = new List<int>(path);
-        }
-        Move(finalPath[0]);
-        possiblePaths.Clear();
+        ClearCheckers();
     }
-    void CheckForPath(Checker startChecker, List<int> currentPath, int counter)
+    void ClearCheckers() //Clears every checker from having been searched
     {
-        if (!isLookingForPath || counter > 10) return;
+        foreach (var aChecker in FindObjectsByType<Checker>(FindObjectsSortMode.None))
+        {
+            aChecker.searched = 0;
+        }
+    }
+    int CheckForPath(Checker startChecker, int stepsLeft, Type target) //Finds the shortest path towards the target and returns -1 if there's no possible path
+    {
+        int[] allStepsLeft = new int[4];
+
+        if (stepsLeft == 0) return -1;
+
+        if (startChecker.positioned != null && startChecker.positioned.GetType() == target)
+        {
+            print("PLAYER FOUND");
+            return stepsLeft;
+        }
 
         for (int i = 0; i < 4; i++)
         {
-            if (startChecker.sideCheckers[i] != null && startChecker.sideCheckers[i].searched > counter)
+            if (startChecker.sideCheckers[i] != null && startChecker.sideCheckers[i].searched < stepsLeft)
             {
-                startChecker.sideCheckers[i].searched = counter;
-                startChecker.sideCheckers[i].GetComponentInChildren<MeshRenderer>().material.color = Color.red;
-                currentPath.Add(i);
-                if (startChecker.sideCheckers[i].positioned != null && startChecker.sideCheckers[i].positioned.GetType() == typeof(PlayerController))
-                {
-                    possiblePaths.Add(new List<int>(currentPath));
-                }
-                else
-                {
-                    CheckForPath(startChecker.sideCheckers[i], new List<int>(currentPath), counter + 1);
-                }
-                currentPath.RemoveAt(currentPath.Count - 1);
+                startChecker.sideCheckers[i].searched = stepsLeft;
+                allStepsLeft[i] = CheckForPath(startChecker.sideCheckers[i], stepsLeft - 1, target);
+            }
+            else allStepsLeft[i] = -1;
+        }
+
+        int maxStepsLeft = allStepsLeft[0], firstStepDirection = 0;
+        for (int i = 1  ; i < 4 ; i++)
+        {
+            if (maxStepsLeft < allStepsLeft[i] && allStepsLeft[i] != -1)
+            {
+                maxStepsLeft = allStepsLeft[i]; 
+                firstStepDirection = i;
             }
         }
+        nextMovement = firstStepDirection;
+        return maxStepsLeft;
     }
 
 }
