@@ -8,7 +8,7 @@ public class TurnManager : MonoBehaviour
     private void Start()
     {
         turnList.Add(FindAnyObjectByType<PlayerController>());
-        turnList.Add(FindAnyObjectByType<EnemyAI>());
+        foreach (var enemy in FindObjectsByType<EnemyAI>(FindObjectsSortMode.None)) turnList.Add(enemy);
     }
     private void Update()
     {

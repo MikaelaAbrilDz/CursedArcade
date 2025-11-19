@@ -2,28 +2,46 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyAI : CharacterOnGround
 {
-    public int nextMovement; //Next movement towards target when calling CheckForPath()
+    protected int nextMovement; //Next movement towards target when calling CheckForPath()
     void Start()
     {
         turnManager = FindAnyObjectByType<TurnManager>();
     }
 
-    public override void StartTurn()
+    public override void StartTurn() //Actions done at the start of the turn
     {
-        MoveTowardsPlayer();
-        turnManager.PassTurn(this);
+
     }
-    void MoveTowardsPlayer() //Uses turn to move towards the player
+    protected void MoveTowardsPlayer() //Uses turn to move towards the player
+    {
+        if (CheckPathAndClearCheckers(CurrentChecker(), 10, typeof(PlayerController)) != -1)
+        {
+            if (!Move(nextMovement)) turnManager.PassTurn(this);
+        }
+    }
+    protected void MoveAwayFromPlayer()
+    {
+        if (CheckPathAndClearCheckers(CurrentChecker(), 10, typeof(PlayerController)) != -1) //Checks possible movements away from player starting from directly away
+        {
+            if (!Move((nextMovement + 2) % 4))
+            {
+                if (!Move((nextMovement + 1) % 4))
+                {
+                    if (!Move((nextMovement + 3) % 4)) turnManager.PassTurn(this);
+                }
+            }
+        }
+    }
+    protected int CheckPathAndClearCheckers(Checker startChecker, int stepsLeft, Type target)
     {
         CurrentChecker().searched = 99;
-        if (CheckForPath(CurrentChecker(), 10, typeof(PlayerController)) != -1)
-        {
-            Move(nextMovement);
-        }
+        int a = CheckForPath(startChecker, stepsLeft, target);
         ClearCheckers();
+        return a;
     }
     void ClearCheckers() //Clears every checker from having been searched
     {
@@ -32,15 +50,14 @@ public class EnemyAI : CharacterOnGround
             aChecker.searched = 0;
         }
     }
-    int CheckForPath(Checker startChecker, int stepsLeft, Type target) //Finds the shortest path towards the target and returns -1 if there's no possible path
+    private int CheckForPath(Checker startChecker, int stepsLeft, Type target) //Finds the shortest path towards the target and returns -1 if there's no possible path
     {
         int[] allStepsLeft = new int[4];
 
         if (stepsLeft == 0) return -1;
 
-        if (startChecker.positioned != null && startChecker.positioned.GetType() == target)
+        if (startChecker.positioned != null && startChecker.positioned.GetType() == target && startChecker.positioned.gameObject != gameObject)
         {
-            print("PLAYER FOUND");
             return stepsLeft;
         }
 
