@@ -11,7 +11,8 @@ public class CharacterOnGround : BasicEntity
     }
     protected bool Move(int directionIndex)
     {
-        if (isMoving || CurrentChecker().sideCheckers[directionIndex] == null || CurrentChecker().sideCheckers[directionIndex].positioned != null) return false;
+        if (isMoving || CurrentChecker().sideCheckers[directionIndex] == null || CurrentChecker().sideCheckers[directionIndex].positioned != null &&
+            CurrentChecker().sideCheckers[directionIndex].positioned.GetType().IsSubclassOf(typeof(CharacterOnGround))) return false;
         isMoving = true;
         SetPositionedChecker(false);
         LeanTween.move(gameObject, CurrentChecker().sideCheckers[directionIndex].transform.position, 0.2f)
