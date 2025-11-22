@@ -46,14 +46,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87e7b5adc342e95459b50f8b18cf3b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemPrefab:
+  - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
+  - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
+  - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
+  - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
+  - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
+  - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
   checkerMask:
     serializedVersion: 2
     m_Bits: 64
+  positioned: {fileID: 0}
   sideCheckers:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  searched: 0
 --- !u!65 &3866256464176134149
 BoxCollider:
   m_ObjectHideFlags: 0

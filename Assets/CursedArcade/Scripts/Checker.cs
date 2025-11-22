@@ -1,7 +1,9 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Checker : MonoBehaviour
 {
+    public GameObject[] itemPrefab;
     [SerializeField] LayerMask checkerMask;
     public BasicEntity positioned;
     public Checker[] sideCheckers = new Checker[4];
@@ -37,5 +39,40 @@ public class Checker : MonoBehaviour
             sideCheckers[3] = hit.collider.GetComponent<Checker>();
         }
         else sideCheckers[3] = null;
+    }
+
+    public void SpawnObject()
+    {
+        float probabilidad = Random.value;
+        GameObject itemToSpawn;
+
+
+        if (probabilidad <= 0.18f)
+        {
+            itemToSpawn = itemPrefab[0];
+        }
+        else if (probabilidad <= 0.38f)
+        {
+            itemToSpawn = itemPrefab[1];
+        }
+        else if (probabilidad <= 0.61f)
+        {
+            itemToSpawn = itemPrefab[2];
+        }
+        else if (probabilidad <= 0.81f)
+        {
+            itemToSpawn = itemPrefab[3];
+        }
+        else if (probabilidad <= 0.91f)
+        {
+            itemToSpawn = itemPrefab[4];
+        }
+        else 
+        {
+            itemToSpawn = itemPrefab[5];
+        }
+
+            BasicEntity spawnedItem = Instantiate(itemToSpawn, transform.position, Quaternion.identity).GetComponent<BasicEntity>();
+        spawnedItem.SetPositionedChecker(true);
     }
 }
