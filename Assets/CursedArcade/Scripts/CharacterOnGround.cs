@@ -5,16 +5,19 @@ public class CharacterOnGround : BasicEntity
 {
     protected TurnManager turnManager;
     bool isMoving = false;
+    public Animator anim;
     private void Start()
     {
         turnManager = FindAnyObjectByType<TurnManager>();
+
+        anim = GetComponentInChildren<Animator>();
     }
     protected bool Move(int directionIndex)
     {
         if (isMoving || CurrentChecker().sideCheckers[directionIndex] == null || CurrentChecker().sideCheckers[directionIndex].positioned != null &&
             CurrentChecker().sideCheckers[directionIndex].positioned.GetType().IsSubclassOf(typeof(CharacterOnGround))) return false;
         isMoving = true;
-
+        anim.SetBool("isWalking", true);
 
         switch (directionIndex)
         {
@@ -46,6 +49,7 @@ public class CharacterOnGround : BasicEntity
         SetPositionedChecker(true);
         turnManager.PassTurn(this);
         isMoving = false;
+        anim.SetBool("isWalking", false);
     }
     public virtual void StartTurn()
     {

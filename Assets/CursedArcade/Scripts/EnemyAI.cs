@@ -7,10 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 public class EnemyAI : CharacterOnGround
 {
     protected int nextMovement; //Next movement towards target when calling CheckForPath()
-    void Start()
-    {
-        turnManager = FindAnyObjectByType<TurnManager>();
-    }
+    
 
     public override void StartTurn() //Actions done at the start of the turn
     {
