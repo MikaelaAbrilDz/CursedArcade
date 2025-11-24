@@ -10,8 +10,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     private void SetSpawn()
-    {
-        
+    { 
         Checker[] allChekers = FindObjectsByType<Checker>(FindObjectsSortMode.None);
 
         int ammountOfCheckersToSpawn = allChekers.Length / 10;
@@ -20,8 +19,6 @@ public class SpawnManager : MonoBehaviour
         {
             allChekers[UnityEngine.Random.Range(0, allChekers.Length)].SpawnObject();
         }
-
-       
     }
 
     // Update is called once per frame
