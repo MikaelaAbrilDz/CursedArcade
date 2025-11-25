@@ -47,6 +47,8 @@ El player es el cubo verde y los enemigos son los niños.
 
 ### ObjectOnGround
 
+De esta clase heredan los objetos y contendrá funcionalidades genéricas a todos los objetos como podría ser recogerlos.
+
 ## Pathfinding e IA de enemigos
 
 Hay una sola IA de enemigo ahora mismo, que es la del niño (la idea es hacer 1 o 2 más).
