@@ -77,5 +77,7 @@ Esto spawnea un objeto en una de cada diez casillas (proporción por determinar)
 ## Objetos
 
 Actualmente el juego cuenta con 2 objetos.
+    
     Punch: Aumenta 0.2 los golpes
+    
     HealthKit: Al activarse cura 20 de salud
