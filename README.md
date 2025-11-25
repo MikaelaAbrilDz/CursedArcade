@@ -1,3 +1,12 @@
+Integrantes:
+
+Mika Ibáñez - MikaelaAbrilDz
+Raúl Bertullo - RaulBertullo
+Aroa Navarro - arnamo230
+Hugo Enríquez - RompeTibias
+María Belloch - mariabelloch
+
+
 El proyecto consiste en un juego al estilo Pokémon Mundo Misterioso, pero con una ambientación de Arcade y en 3D.
 
 Hay una serie de turnos y un mundo creado en base a casillas.
