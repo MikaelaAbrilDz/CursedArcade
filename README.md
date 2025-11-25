@@ -1,9 +1,13 @@
 Integrantes:
 
 Mika Ibáñez - MikaelaAbrilDz
+
 Raúl Bertullo - RaulBertullo
+
 Aroa Navarro - arnamo230
+
 Hugo Enríquez - RompeTibias
+
 María Belloch - mariabelloch
 
 
