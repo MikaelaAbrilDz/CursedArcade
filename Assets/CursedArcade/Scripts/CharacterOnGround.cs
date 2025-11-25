@@ -47,10 +47,29 @@ public class CharacterOnGround : BasicEntity
     private void FinishMovement()
     {
         SetPositionedChecker(true);
+
+        Checker current = CurrentChecker();
+        if (current != null && current.positioned != null)
+        {
+            // Si hay un punch en esta casilla
+            PunchEntity punch = current.positioned as PunchEntity;
+            if (punch != null)
+            {
+                punch.PickUp(this);
+            }
+            HealthKitEntity hk = current.positioned as HealthKitEntity;
+            if (hk != null)
+            {
+                hk.PickUp(this);
+            }
+            // Aquí puedes seguir añadiendo otros tipos (HealthKitEntity, etc.)
+        }
+
         turnManager.PassTurn(this);
         isMoving = false;
         anim.SetBool("isWalking", false);
     }
+
     public virtual void StartTurn()
     {
 

@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class ObjectOnGround : BasicEntity
+public class ObjectOnGround : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string objectName;
+    public int amount;
 
-    // Update is called once per frame
-    void Update()
+    // Constructor para crear el objeto fácilmente
+    public ObjectOnGround(string name, int qty)
     {
-        
+        objectName = name;
+        amount = qty;
     }
 }
