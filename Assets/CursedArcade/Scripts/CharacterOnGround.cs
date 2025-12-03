@@ -1,16 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class CharacterOnGround : BasicEntity
 {
     protected TurnManager turnManager;
-    bool isMoving = false;
+    bool isMoving = false, isAtacking = false;
     public Animator anim;
+    CharacterStats stats;
     private void Start()
     {
         turnManager = FindAnyObjectByType<TurnManager>();
 
         anim = GetComponentInChildren<Animator>();
+
+        stats = GetComponent<CharacterStats>();
     }
     protected bool Move(int directionIndex)
     {
@@ -74,9 +78,18 @@ public class CharacterOnGround : BasicEntity
     {
 
     }
-
-    protected void Atack(int baseDamage)
+    protected IEnumerator AtackCo(int averageBaseDamage, float desviation, float bonusDamage, int amountOfHits, CharacterOnGround target, float duration, string animation)
     {
-
+        isAtacking = true;
+        for (int i = 0; i < amountOfHits; i++)
+        {
+            anim.Play(animation);
+            //DESVÍA MEDIANTE LA DISTRIBUCIÓN NORMAL EL DAÑO PROMEDIO CON LA DESVIACIÓN
+            int damage = (int)(averageBaseDamage + desviation * Mathf.Sqrt(-2f * Mathf.Log(Random.value)) * Mathf.Cos(2f * Mathf.PI * Random.value));
+            //USA EL DAÑO RESULTANTE MULTIPLICADO POR EL BONUS
+            target.stats._life -= (int)(damage * bonusDamage);
+            yield return new WaitForSeconds(duration);
+        }
+        isAtacking = false;
     }
 }
