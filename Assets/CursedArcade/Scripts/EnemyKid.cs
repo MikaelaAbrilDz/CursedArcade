@@ -6,12 +6,10 @@ public class EnemyKid : EnemyAI
     {
         if (CheckPathAndClearCheckers(CurrentChecker(), 3, typeof(EnemyKid)) != -1)
         {
-           
             MoveTowardsPlayer();
         }
         else
         {
-            
             MoveAwayFromPlayer();
         }
     }

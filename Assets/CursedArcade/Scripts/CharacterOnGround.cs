@@ -74,4 +74,9 @@ public class CharacterOnGround : BasicEntity
     {
 
     }
+
+    protected void Atack(int baseDamage)
+    {
+
+    }
 }
