@@ -299,6 +299,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff0782ae108a884482b098b41564497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
+  healthKitPrefab: {fileID: 0}
+  punchPrefab: {fileID: 0}
 --- !u!1001 &254497124
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1343,7 +1345,8 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 330585545}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4832042031526698665, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
