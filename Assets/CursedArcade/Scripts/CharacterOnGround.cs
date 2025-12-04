@@ -18,11 +18,6 @@ public class CharacterOnGround : BasicEntity
     }
     protected bool Move(int directionIndex)
     {
-        if (isMoving || CurrentChecker().sideCheckers[directionIndex] == null || CurrentChecker().sideCheckers[directionIndex].positioned != null &&
-            CurrentChecker().sideCheckers[directionIndex].positioned.GetType().IsSubclassOf(typeof(CharacterOnGround))) return false;
-        isMoving = true;
-        anim.SetBool("isWalking", true);
-
         switch (directionIndex)
         {
             case 0:
@@ -41,6 +36,12 @@ public class CharacterOnGround : BasicEntity
                 transform.eulerAngles = new Vector3(0f, 270f, 0f);
                 break;
         }
+
+        if (isMoving || CurrentChecker().sideCheckers[directionIndex] == null || CurrentChecker().sideCheckers[directionIndex].positioned != null &&
+            CurrentChecker().sideCheckers[directionIndex].positioned.GetType().IsSubclassOf(typeof(CharacterOnGround))) return false;
+        isMoving = true;
+        anim.SetBool("isWalking", true);
+
 
 
         SetPositionedChecker(false);
@@ -87,9 +88,10 @@ public class CharacterOnGround : BasicEntity
             //DESVÍA MEDIANTE LA DISTRIBUCIÓN NORMAL EL DAÑO PROMEDIO CON LA DESVIACIÓN
             int damage = (int)(averageBaseDamage + desviation * Mathf.Sqrt(-2f * Mathf.Log(Random.value)) * Mathf.Cos(2f * Mathf.PI * Random.value));
             //USA EL DAÑO RESULTANTE MULTIPLICADO POR EL BONUS
-            target.stats._life -= (int)(damage * bonusDamage);
+            if (target != null) target.stats._life -= (int)(damage * bonusDamage);
             yield return new WaitForSeconds(duration);
         }
+        turnManager.PassTurn(this);
         isAtacking = false;
     }
 }

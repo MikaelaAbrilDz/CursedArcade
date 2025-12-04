@@ -1293,10 +1293,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1867147648828712422, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
+    - target: {fileID: 539318757063232571, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
+      propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 2100000, guid: fbafdeeca641b914aa44cfc6ccf0e330, type: 2}
+      objectReference: {fileID: 9100000, guid: adc9cf5e43d1cac448f0d2f77e227802, type: 2}
     - target: {fileID: 6121868258499668273, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1341,12 +1341,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8435765512575312101, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 330585545}
-    m_RemovedComponents:
-    - {fileID: 4832042031526698665, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

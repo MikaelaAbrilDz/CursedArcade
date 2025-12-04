@@ -3,10 +3,10 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
     //STATS BÁSICAS DE CUALQUIER PERSONAJE
-    private int life = 75;
-    private int lifeMax = 100;
-    private int speed = 1;
-    private int attack = 1;
+    [SerializeField] private int life = 100;
+    [SerializeField] private int lifeMax = 100;
+    [SerializeField] private int speed = 1;
+    [SerializeField] private int attack = 1;
 
     public int _life
     {
@@ -22,6 +22,8 @@ public class CharacterStats : MonoBehaviour
             if (life == 0)
             {
                 //MORIR
+                FindAnyObjectByType<TurnManager>().turnList.Remove(GetComponent<CharacterOnGround>());
+                Destroy(gameObject);
             }
 
         }
