@@ -52,24 +52,25 @@ public class PlayerController : CharacterOnGround
         if (context.performed)
         {
             CharacterOnGround target = null;
-            float angle = 360 - transform.eulerAngles.y;
-            if (angle < 0) angle += 360;
+            float angle = transform.eulerAngles.y;
+            if (transform.eulerAngles.y < 0) angle += 360;
+            
             switch (angle)
             {
                 case 0:
-                    if (CurrentChecker().sideCheckers[0].positioned != null) target = (CharacterOnGround)CurrentChecker().sideCheckers[0].positioned;
+                    if (CurrentChecker().sideCheckers[0] != null && CurrentChecker().sideCheckers[0].positioned != null) target = (CharacterOnGround)CurrentChecker().sideCheckers[0].positioned;
                     break;
                 case 90:
-                    if (CurrentChecker().sideCheckers[1].positioned != null) target = (CharacterOnGround)CurrentChecker().sideCheckers[1].positioned;
+                    if (CurrentChecker().sideCheckers[1] != null && CurrentChecker().sideCheckers[1].positioned != null) target = (CharacterOnGround)CurrentChecker().sideCheckers[1].positioned;
                     break;
                 case 180:
-                    if (CurrentChecker().sideCheckers[2].positioned != null) target = (CharacterOnGround)CurrentChecker().sideCheckers[2].positioned;
+                    if (CurrentChecker().sideCheckers[2] != null && CurrentChecker().sideCheckers[2].positioned != null) target = (CharacterOnGround)CurrentChecker().sideCheckers[2].positioned;
                     break;
                 case 270:
-                    if (CurrentChecker().sideCheckers[3].positioned != null) target = (CharacterOnGround)CurrentChecker().sideCheckers[3].positioned;
+                    if (CurrentChecker().sideCheckers[3] != null && CurrentChecker().sideCheckers[3].positioned != null) target = (CharacterOnGround)CurrentChecker().sideCheckers[3].positioned;
                     break;
             }
-            StartCoroutine(AtackCo(7, 2, 1.2f, 2, target, 0.5f, ""));
+            StartCoroutine(AtackCo(7, 2, 1.2f, 2, target, 0.7f, "Punch"));
         }
     }
 }
