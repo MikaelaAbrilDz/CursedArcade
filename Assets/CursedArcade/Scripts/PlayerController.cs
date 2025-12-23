@@ -53,7 +53,7 @@ public class PlayerController : CharacterOnGround
         {
             CharacterOnGround target = null;
             float angle = transform.eulerAngles.y;
-            if (transform.eulerAngles.y < 0) angle += 360;
+            if (angle < 0) angle += 360;
             
             switch (angle)
             {
@@ -70,7 +70,7 @@ public class PlayerController : CharacterOnGround
                     if (CurrentChecker().sideCheckers[3] != null && CurrentChecker().sideCheckers[3].positioned != null) target = (CharacterOnGround)CurrentChecker().sideCheckers[3].positioned;
                     break;
             }
-            StartCoroutine(AtackCo(7, 2, 1.2f, 2, target, 0.7f, "Punch"));
+            StartCoroutine(AtackCo(stats._attack, 2, 1.2f, 2, target, 0.7f, "Punch"));
         }
     }
 }

@@ -36,7 +36,7 @@ public class EnemyAI : CharacterOnGround
     protected int CheckPathAndClearCheckers(Checker startChecker, int stepsLeft, Type target)
     {
         CurrentChecker().searched = 99;
-        int a = CheckForPath(startChecker, stepsLeft, target);
+        int a = CheckForPath(startChecker, stepsLeft + 1, target); // Adds 1 to steps left to make values put in the original parameter more intuitive
         ClearCheckers();
         return a;
     }

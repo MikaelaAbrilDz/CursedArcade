@@ -2267,7 +2267,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 477643259742422630, guid: d563999a9ec5bcc45be74e58b8684858, type: 3}
       propertyPath: m_Name
-      value: Enemy
+      value: KidEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 611063408760278048, guid: d563999a9ec5bcc45be74e58b8684858, type: 3}
       propertyPath: m_LocalPosition.x

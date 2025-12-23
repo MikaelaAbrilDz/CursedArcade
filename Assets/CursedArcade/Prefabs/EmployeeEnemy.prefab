@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 611063408760278048}
-  - component: {fileID: 1705209482859419110}
+  - component: {fileID: 3724275468350123645}
   - component: {fileID: 3818666227698280646}
   m_Layer: 0
   m_Name: EmployeeEnemy
@@ -34,7 +34,7 @@ Transform:
   - {fileID: 9164207509186892029}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1705209482859419110
+--- !u!114 &3724275468350123645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,9 +43,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 477643259742422630}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c9dfc90f19ccc4d8bd96be7e2c71d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 92ec73def5f2def4c9ef0e7845ab19ba, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyKid
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyEmployee
   checkerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -62,6 +62,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e9eda8d8fd4c247b3e8ba09eae430b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  life: 50
+  lifeMax: 50
+  speed: 1
+  attack: 10
 --- !u!1001 &7064105197243485451
 PrefabInstance:
   m_ObjectHideFlags: 0

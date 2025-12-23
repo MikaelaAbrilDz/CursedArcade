@@ -7,7 +7,7 @@ public class CharacterOnGround : BasicEntity
     protected TurnManager turnManager;
     bool isMoving = false, isAtacking = false;
     public Animator anim;
-    CharacterStats stats;
+    protected CharacterStats stats;
     private void Start()
     {
         turnManager = FindAnyObjectByType<TurnManager>();
@@ -18,24 +18,9 @@ public class CharacterOnGround : BasicEntity
     }
     protected bool Move(int directionIndex)
     {
-        switch (directionIndex)
-        {
-            case 0:
-                transform.eulerAngles = new Vector3(0f, 0f, 0f);
-                break;
+        if (isAtacking) return false;
 
-            case 1:
-                transform.eulerAngles = new Vector3(0f, 90f, 0f);
-                break;
-
-            case 2:
-                transform.eulerAngles = new Vector3(0f, 180f, 0f);
-                break;
-
-                case 3:
-                transform.eulerAngles = new Vector3(0f, 270f, 0f);
-                break;
-        }
+        LookToIndex(directionIndex);
 
         if (isMoving || CurrentChecker().sideCheckers[directionIndex] == null || CurrentChecker().sideCheckers[directionIndex].positioned != null &&
             CurrentChecker().sideCheckers[directionIndex].positioned.GetType().IsSubclassOf(typeof(CharacterOnGround))) return false;
@@ -74,7 +59,6 @@ public class CharacterOnGround : BasicEntity
         isMoving = false;
         anim.SetBool("isWalking", false);
     }
-
     public virtual void StartTurn()
     {
 
@@ -82,6 +66,9 @@ public class CharacterOnGround : BasicEntity
     protected IEnumerator AtackCo(int averageBaseDamage, float desviation, float bonusDamage, int amountOfHits, CharacterOnGround target, float duration, string animation)
     {
         isAtacking = true;
+
+        if (target != null) transform.LookAt(target.transform);
+
         for (int i = 0; i < amountOfHits; i++)
         {
             anim.Play(animation);
@@ -93,5 +80,26 @@ public class CharacterOnGround : BasicEntity
         }
         turnManager.PassTurn(this);
         isAtacking = false;
+    }
+    protected void LookToIndex(int directionIndex)
+    {
+        switch (directionIndex)
+        {
+            case 0:
+                transform.eulerAngles = new Vector3(0f, 0f, 0f);
+                break;
+
+            case 1:
+                transform.eulerAngles = new Vector3(0f, 90f, 0f);
+                break;
+
+            case 2:
+                transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                break;
+
+            case 3:
+                transform.eulerAngles = new Vector3(0f, 270f, 0f);
+                break;
+        }
     }
 }
