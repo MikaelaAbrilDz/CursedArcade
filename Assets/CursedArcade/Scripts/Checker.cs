@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Checker : MonoBehaviour
 {
-    public GameObject[] itemPrefab;
+    public GameObject[] itemPrefab, enemyPrefab;
     [SerializeField] LayerMask checkerMask;
     public BasicEntity positioned;
     public Checker[] sideCheckers = new Checker[4];
@@ -72,7 +72,25 @@ public class Checker : MonoBehaviour
             itemToSpawn = itemPrefab[5];
         }
 
-            BasicEntity spawnedItem = Instantiate(itemToSpawn, transform.position, Quaternion.identity).GetComponent<BasicEntity>();
+        BasicEntity spawnedItem = Instantiate(itemToSpawn, transform.position, Quaternion.identity).GetComponent<BasicEntity>();
+        spawnedItem.SetPositionedChecker(true);
+    }
+    public void SpawnEnemy()
+    {
+        float probabilidad = Random.value;
+        GameObject enemyToSpawn;
+
+
+        if (probabilidad <= 0.3f)
+        {
+            enemyToSpawn = enemyPrefab[0];
+        }
+        else
+        {
+            enemyToSpawn = enemyPrefab[1];
+        }
+
+        BasicEntity spawnedItem = Instantiate(enemyToSpawn, transform.position, Quaternion.identity).GetComponent<BasicEntity>();
         spawnedItem.SetPositionedChecker(true);
     }
 }

@@ -54,6 +54,9 @@ MonoBehaviour:
   - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
   - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
   - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
+  enemyPrefab:
+  - {fileID: 477643259742422630, guid: 43b3f0c6239616b4a9aa8838ad9f3d4c, type: 3}
+  - {fileID: 477643259742422630, guid: d563999a9ec5bcc45be74e58b8684858, type: 3}
   checkerMask:
     serializedVersion: 2
     m_Bits: 64

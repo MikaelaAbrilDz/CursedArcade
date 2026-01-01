@@ -19,6 +19,7 @@ public class EnemyAI : CharacterOnGround
         {
             if (!Move(nextMovement)) EndAction();
         }
+        else EndAction();
     }
     protected void MoveAwayFromPlayer()
     {
@@ -32,6 +33,7 @@ public class EnemyAI : CharacterOnGround
                 }
             }
         }
+        else EndAction();
     }
     protected int CheckPathAndClearCheckers(Checker startChecker, int stepsLeft, Type target)
     {
