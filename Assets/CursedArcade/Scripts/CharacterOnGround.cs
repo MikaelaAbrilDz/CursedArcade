@@ -71,7 +71,7 @@ public class CharacterOnGround : BasicEntity
     protected void EndAction()
     {
         actionsLeft--;
-        if (actionsLeft == 0) turnManager.PassTurn(this);
+        if (actionsLeft <= 0) turnManager.PassTurn(this);
         else turnManager.StartNextTurn();
     }
     protected IEnumerator AtackCo(int averageBaseDamage, float desviation, float bonusDamage, int amountOfHits, CharacterOnGround target, float duration, string animation)
