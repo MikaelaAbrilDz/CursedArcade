@@ -8,6 +8,7 @@ public class CharacterOnGround : BasicEntity
     bool isMoving = false, isAtacking = false;
     public Animator anim;
     protected CharacterStats stats;
+    private int actionsLeft;
     private void Start()
     {
         turnManager = FindAnyObjectByType<TurnManager>();
@@ -55,13 +56,23 @@ public class CharacterOnGround : BasicEntity
             // Aquí puedes seguir añadiendo otros tipos (HealthKitEntity, etc.)
         }
 
-        turnManager.PassTurn(this);
         isMoving = false;
         anim.SetBool("isWalking", false);
+        EndAction();
     }
     public virtual void StartTurn()
     {
 
+    }
+    public void SetActionsForTurn()
+    {
+        actionsLeft = stats._speed;
+    }
+    protected void EndAction()
+    {
+        actionsLeft--;
+        if (actionsLeft == 0) turnManager.PassTurn(this);
+        else turnManager.StartNextTurn();
     }
     protected IEnumerator AtackCo(int averageBaseDamage, float desviation, float bonusDamage, int amountOfHits, CharacterOnGround target, float duration, string animation)
     {
@@ -78,8 +89,8 @@ public class CharacterOnGround : BasicEntity
             if (target != null) target.stats._life -= (int)(damage * bonusDamage);
             yield return new WaitForSeconds(duration);
         }
-        turnManager.PassTurn(this);
         isAtacking = false;
+        EndAction();
     }
     protected void LookToIndex(int directionIndex)
     {

@@ -17,7 +17,7 @@ public class EnemyAI : CharacterOnGround
     {
         if (CheckPathAndClearCheckers(CurrentChecker(), 10, typeof(PlayerController)) != -1)
         {
-            if (!Move(nextMovement)) turnManager.PassTurn(this);
+            if (!Move(nextMovement)) EndAction();
         }
     }
     protected void MoveAwayFromPlayer()
@@ -28,7 +28,7 @@ public class EnemyAI : CharacterOnGround
             {
                 if (!Move((nextMovement + 1) % 4))
                 {
-                    if (!Move((nextMovement + 3) % 4)) turnManager.PassTurn(this);
+                    if (!Move((nextMovement + 3) % 4)) EndAction();
                 }
             }
         }
