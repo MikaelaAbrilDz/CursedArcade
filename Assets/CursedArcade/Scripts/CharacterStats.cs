@@ -5,8 +5,14 @@ public class CharacterStats : MonoBehaviour
     //STATS BÁSICAS DE CUALQUIER PERSONAJE
     [SerializeField] private int life = 100;
     [SerializeField] private int lifeMax = 100;
-    [SerializeField] private int speed = 1;
-    [SerializeField] private int attack = 1;
+    private int speed = 1;
+    private int attack = 1;
+    public int speedBase, attackBase;
+    private void Start()
+    {
+        _speed = speedBase;
+        _attack = attackBase;
+    }
 
     public int _life
     {

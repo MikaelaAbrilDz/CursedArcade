@@ -15,14 +15,17 @@ public class SpawnManager : MonoBehaviour
     private void SetSpawn()
     {
         Checker[] allChekers = FindObjectsByType<Checker>(FindObjectsSortMode.None);
-        int ammountOfCheckersToSpawnObj = allChekers.Length / percentageOfObjects;
-        int ammountOfCheckersToSpawnEnemy = allChekers.Length / percentageOfEnemies;
+        int ammountOfCheckersToSpawnObj = (int)(allChekers.Length * (percentageOfObjects/100f));
+        int ammountOfCheckersToSpawnEnemy = (int)(allChekers.Length * (percentageOfEnemies/100f));
+        print("PORCENTAJE: " + percentageOfEnemies/100f + " || CHECKERS: " + allChekers.Length + " || SPAWNERS: " + ammountOfCheckersToSpawnEnemy);
+        print(ammountOfCheckersToSpawnObj);
 
         for (int i = 0; i < ammountOfCheckersToSpawnObj; i++)
         {
             Checker checker = allChekers[UnityEngine.Random.Range(0, allChekers.Length)];
 
             if (checker.positioned == null) checker.SpawnObject();
+            else i--;
         }
 
         for (int i = 0; i < ammountOfCheckersToSpawnEnemy; i++)
@@ -30,6 +33,7 @@ public class SpawnManager : MonoBehaviour
             Checker checker = allChekers[UnityEngine.Random.Range(0, allChekers.Length)];
 
             if (checker.positioned == null) checker.SpawnEnemy();
+            else i--;
         }
     }
 }

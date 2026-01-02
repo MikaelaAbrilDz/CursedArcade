@@ -64,8 +64,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   life: 20
   lifeMax: 20
-  speed: 1
-  attack: 5
+  speedBase: 1
+  attackBase: 5
 --- !u!1001 &7064105197243485451
 PrefabInstance:
   m_ObjectHideFlags: 0

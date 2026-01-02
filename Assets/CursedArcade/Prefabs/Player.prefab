@@ -201,8 +201,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
   life: 100
   lifeMax: 100
-  speed: 3
-  attack: 7
+  speedBase: 1
+  attackBase: 7
 --- !u!114 &968001859510618893
 MonoBehaviour:
   m_ObjectHideFlags: 0
