@@ -1,28 +1,14 @@
 using UnityEngine;
 
-public class HealthKitEntity : BasicEntity
+public class HealthKitEntity : BasicInventoryItem
 {
-    [SerializeField] private int amount = 1;
-
-    // Llama a esto cuando un CharacterOnGround entra en la misma casilla
-    public void PickUp(CharacterOnGround character)
+    [SerializeField] int ammountToHeal;
+    public override void ItemToInventory(Inventory inv)
     {
-        Inventory inv = character.GetComponent<Inventory>();
-        if (inv == null) return;
-
-        inv.AddHealthKits(amount);
-
-        // Opcional: añadir a lista de items
-        ObjectOnGround obj = GetComponent<ObjectOnGround>();
-        if (obj != null)
-        {
-            inv.AddItem(obj);
-        }
-
-        // Liberar la casilla
-        SetPositionedChecker(false);
-
-        // Destruir el objeto del suelo
-        Destroy(gameObject);
+        inv.AddHealthKit();
+    }
+    public override void ItemToCharacter(CharacterOnGround character)
+    {
+        character.stats._life += ammountToHeal;
     }
 }

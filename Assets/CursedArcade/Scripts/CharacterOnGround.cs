@@ -7,7 +7,7 @@ public class CharacterOnGround : BasicEntity
     protected TurnManager turnManager;
     bool isMoving = false, isAtacking = false;
     public Animator anim;
-    protected CharacterStats stats;
+    public CharacterStats stats;
     private int actionsLeft;
     private void Start()
     {
@@ -37,24 +37,13 @@ public class CharacterOnGround : BasicEntity
     }
     private void FinishMovement()
     {
-        SetPositionedChecker(true);
-
         Checker current = CurrentChecker();
-        if (current != null && current.positioned != null)
+        if (current.positioned != null && current.positioned.GetComponent<ItemOnGround>() != null)
         {
-            // Si hay un punch en esta casilla
-            PunchEntity punch = current.positioned as PunchEntity;
-            if (punch != null)
-            {
-                punch.PickUp(this);
-            }
-            HealthKitEntity hk = current.positioned as HealthKitEntity;
-            if (hk != null)
-            {
-                hk.PickUp(this);
-            }
-            // Aquí puedes seguir añadiendo otros tipos (HealthKitEntity, etc.)
+            current.positioned.GetComponent<ItemOnGround>().PickUp(this);
         }
+
+        SetPositionedChecker(true);
 
         isMoving = false;
         anim.SetBool("isWalking", false);

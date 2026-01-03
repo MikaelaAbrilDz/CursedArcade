@@ -1,10 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.TextCore.Text;
 
 public class Inventory : MonoBehaviour
 {
-    public List<ObjectOnGround> items = new List<ObjectOnGround>();
-
     [SerializeField] private int healthKits = 0;   // Empiezas sin kits
 
     public int _healthKits
@@ -13,22 +12,13 @@ public class Inventory : MonoBehaviour
         set => healthKits = value;
     }
 
-    public void AddHealthKits(int amount)
+    public void AddHealthKit()
     {
-        healthKits += amount;
+        _healthKits += 1;
     }
-    public void AddItem(ObjectOnGround item)
+    public void AddPunch(int punchValue)
     {
-        items.Add(item);
-    }
-
-    public void RemoveItem(ObjectOnGround item)
-    {
-        items.Remove(item);
-    }
-
-    public bool HasItem(string name)
-    {
-        return items.Exists(i => i.objectName == name);
+        PlayerController player = GetComponent<PlayerController>();
+        if (player.stats.attackBase - player.stats._attack < punchValue) player.stats._attack = player.stats.attackBase + punchValue;
     }
 }

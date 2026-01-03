@@ -1,30 +1,23 @@
 using UnityEngine;
 
-public class PunchEntity : BasicEntity
+public class PunchEntity : BasicInventoryItem
 {
-    [SerializeField] private float attackMultiplierPerPunch = 0.2f; // +20% por punch, por ejemplo
-
-    public void PickUp(CharacterOnGround character)
+    [SerializeField] int attackAdditionBase, attackAdditionDesviation;
+    private int attackAddition = 0;
+    private void Start()
     {
-        Inventory inv = character.GetComponent<Inventory>();
-        if (inv == null) return;
-
-        // Guardar el objeto en el inventario
-        ObjectOnGround obj = GetComponent<ObjectOnGround>();
-        if (obj != null)
-        {
-            inv.AddItem(obj);
-        }
-
-        // Liberar la casilla
-        SetPositionedChecker(false);
-
-        // Destruir el objeto del suelo
-        Destroy(gameObject);
+        attackAddition = CalculateAttackAddition();
     }
-
-    public float GetMultiplierPerPunch()
+    private int CalculateAttackAddition()
     {
-        return attackMultiplierPerPunch;
+        return (int)(attackAdditionBase + attackAdditionDesviation * Mathf.Sqrt(-2f * Mathf.Log(Random.value)) * Mathf.Cos(2f * Mathf.PI * Random.value));
+    }
+    public override void ItemToInventory(Inventory inv)
+    {
+        inv.AddPunch(attackAddition);
+    }
+    public override void ItemToCharacter(CharacterOnGround character)
+    {
+        if (character.stats.attackBase - character.stats._attack < attackAddition) character.stats._attack = character.stats.attackBase + attackAddition;
     }
 }
