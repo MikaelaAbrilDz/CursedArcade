@@ -24,7 +24,7 @@ public class Inventory : MonoBehaviour
     public void AddHelmet(int helmetValue)
     {
         PlayerController player = GetComponent<PlayerController>();
-        if (player.stats.lifeMaxBase - player.stats._life < helmetValue) player.stats._life = player.stats.lifeMaxBase + helmetValue;
+        if (player.stats.lifeMaxBase - player.stats._lifeMax < helmetValue) player.stats._lifeMax = player.stats.lifeMaxBase + helmetValue;
     }
     public void AddBoots(int bootsValue)
     {
