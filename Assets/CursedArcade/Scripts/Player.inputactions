@@ -59,6 +59,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Atack_1",
+                    "type": "Button",
+                    "id": "c0c65ed1-1eb0-482d-b9ee-4354f5a83316",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -125,6 +134,17 @@
                     "processors": "",
                     "groups": ";Keyboard",
                     "action": "Atack_0",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "61c51452-6c72-43a0-9d41-f5dcc0513166",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Atack_1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

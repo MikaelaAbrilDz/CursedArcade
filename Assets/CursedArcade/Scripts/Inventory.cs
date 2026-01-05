@@ -19,16 +19,16 @@ public class Inventory : MonoBehaviour
     public void AddPunch(int punchValue)
     {
         PlayerController player = GetComponent<PlayerController>();
-        if (player.stats.attackBase - player.stats._attack < punchValue) player.stats._attack = player.stats.attackBase + punchValue;
+        if (player.stats._attack - player.stats.attackBase < punchValue) player.stats._attack = player.stats.attackBase + punchValue;
     }
     public void AddHelmet(int helmetValue)
     {
         PlayerController player = GetComponent<PlayerController>();
-        if (player.stats.lifeMaxBase - player.stats._lifeMax < helmetValue) player.stats._lifeMax = player.stats.lifeMaxBase + helmetValue;
+        if (player.stats._lifeMax - player.stats.lifeMaxBase < helmetValue) player.stats._lifeMax = player.stats.lifeMaxBase + helmetValue;
     }
     public void AddBoots(int bootsValue)
     {
         PlayerController player = GetComponent<PlayerController>();
-        if (player.stats.speedBase - player.stats._speed < bootsValue) player.stats._speed = player.stats.speedBase + bootsValue;
+        if (player.stats._speed - player.stats.speedBase < bootsValue) player.stats._speed = player.stats.speedBase + bootsValue;
     }
 }

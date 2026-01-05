@@ -19,6 +19,6 @@ public class BootsEntity : BasicInventoryItem
     }
     public override void ItemToCharacter(CharacterOnGround character)
     {
-        if (character.stats.speedBase - character.stats._speed < speedAddition) character.stats._speed = character.stats.speedBase + speedAddition;
+        if (character.stats._speed - character.stats.speedBase < speedAddition) character.stats._speed = character.stats.speedBase + speedAddition;
     }
 }

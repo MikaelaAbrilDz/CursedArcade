@@ -19,6 +19,6 @@ public class HelmetEntity : BasicInventoryItem
     }
     public override void ItemToCharacter(CharacterOnGround character)
     {
-        if (character.stats.lifeMaxBase - character.stats._lifeMax < lifeAddition) character.stats._lifeMax = character.stats.lifeMaxBase + lifeAddition;
+        if (character.stats._lifeMax - character.stats.lifeMaxBase < lifeAddition) character.stats._lifeMax = character.stats.lifeMaxBase + lifeAddition;
     }
 }

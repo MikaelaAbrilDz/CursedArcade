@@ -19,6 +19,6 @@ public class PunchEntity : BasicInventoryItem
     }
     public override void ItemToCharacter(CharacterOnGround character)
     {
-        if (character.stats.attackBase - character.stats._attack < attackAddition) character.stats._attack = character.stats.attackBase + attackAddition;
+        if (character.stats._attack - character.stats.attackBase < attackAddition) character.stats._attack = character.stats.attackBase + attackAddition;
     }
 }
