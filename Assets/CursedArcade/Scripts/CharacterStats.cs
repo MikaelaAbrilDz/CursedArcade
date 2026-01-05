@@ -43,6 +43,7 @@ public class CharacterStats : MonoBehaviour
             {
                 //MORIR
                 FindAnyObjectByType<TurnManager>().turnList.Remove(GetComponent<CharacterOnGround>());
+                FindAnyObjectByType<GameManager>().CheckEnemyNumber();
                 Destroy(gameObject);
             }
 
