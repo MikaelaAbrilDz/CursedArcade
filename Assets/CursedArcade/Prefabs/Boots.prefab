@@ -67,7 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 19d5f10a67574eb4d84816ea950bc995, type: 2}
+  - {fileID: 2100000, guid: e4f24ebd80e76e94ab3d6ea5186225a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -122,10 +122,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6280942999231160614}
-  - component: {fileID: 7992229237841407289}
-  - component: {fileID: 6309823398620537423}
+  - component: {fileID: 2830754625723772391}
+  - component: {fileID: 8774250248479845470}
   m_Layer: 0
-  m_Name: Item
+  m_Name: Boots
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ Transform:
   - {fileID: 1537070422581805256}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7992229237841407289
+--- !u!114 &2830754625723772391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,8 +162,8 @@ MonoBehaviour:
   checkerMask:
     serializedVersion: 2
     m_Bits: 64
-  item: {fileID: 6309823398620537423}
---- !u!114 &6309823398620537423
+  item: {fileID: 8774250248479845470}
+--- !u!114 &8774250248479845470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -172,7 +172,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5965934352636184344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d08b99790c11a345997d7a83252dfc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 47a4966012e767649aa152ad8cfe3c17, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BasicInventoryItem
-  itemName: Placeholder
+  m_EditorClassIdentifier: Assembly-CSharp::BootsEntity
+  itemName: Boots
+  speedAdditionBase: 2
+  speedAdditionDesviation: 2

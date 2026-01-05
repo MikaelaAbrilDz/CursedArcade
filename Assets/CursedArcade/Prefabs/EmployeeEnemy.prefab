@@ -67,6 +67,7 @@ MonoBehaviour:
   lifeMax: 50
   speedBase: 1
   attackBase: 8
+  lifeMaxBase: 50
 --- !u!1001 &7064105197243485451
 PrefabInstance:
   m_ObjectHideFlags: 0

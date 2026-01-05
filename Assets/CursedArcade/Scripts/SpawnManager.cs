@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
 
     private void SetSpawn()
     {
+        FindAnyObjectByType<PlayerController>().SetPositionedChecker(true);
+
         Checker[] allChekers = FindObjectsByType<Checker>(FindObjectsSortMode.None);
         int ammountOfCheckersToSpawnObj = (int)(allChekers.Length * (percentageOfObjects/100f));
         int ammountOfCheckersToSpawnEnemy = (int)(allChekers.Length * (percentageOfEnemies/100f));

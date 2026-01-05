@@ -47,29 +47,21 @@ public class Checker : MonoBehaviour
         GameObject itemToSpawn;
 
 
-        if (probabilidad <= 0.18f)
+        if (probabilidad <= 0.2f)
         {
             itemToSpawn = itemPrefab[0];
         }
-        else if (probabilidad <= 0.38f)
+        else if (probabilidad <= 0.4f)
         {
             itemToSpawn = itemPrefab[1];
         }
-        else if (probabilidad <= 0.61f)
+        else if (probabilidad <= 0.5f)
         {
             itemToSpawn = itemPrefab[2];
         }
-        else if (probabilidad <= 0.81f)
-        {
-            itemToSpawn = itemPrefab[3];
-        }
-        else if (probabilidad <= 0.91f)
-        {
-            itemToSpawn = itemPrefab[4];
-        }
         else 
         {
-            itemToSpawn = itemPrefab[5];
+            itemToSpawn = itemPrefab[3];
         }
 
         BasicEntity spawnedItem = Instantiate(itemToSpawn, transform.position, Quaternion.identity).GetComponent<BasicEntity>();

@@ -8,11 +8,12 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] private int lifeMax = 100;
     private int speed = 1;
     private int attack = 1;
-    public int speedBase, attackBase;
+    public int speedBase, attackBase, lifeMaxBase;
     private void Start()
     {
         _speed = speedBase;
         _attack = attackBase;
+        _lifeMax = lifeMaxBase;
     }
 
     public int _life

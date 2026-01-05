@@ -49,10 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab:
   - {fileID: 5965934352636184344, guid: 0cf65b3de5e05cf4385efc7d678b65d7, type: 3}
-  - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
-  - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
-  - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
-  - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
+  - {fileID: 5965934352636184344, guid: eb922a44d872f7d4fa391924bc0abade, type: 3}
+  - {fileID: 5965934352636184344, guid: 351a54d992b74fc48ab48ab771049133, type: 3}
   - {fileID: 5965934352636184344, guid: 93150a42af499914ba0ecfa7e80187bb, type: 3}
   enemyPrefab:
   - {fileID: 477643259742422630, guid: 43b3f0c6239616b4a9aa8838ad9f3d4c, type: 3}

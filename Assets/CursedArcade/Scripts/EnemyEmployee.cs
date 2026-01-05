@@ -6,7 +6,7 @@ public class EnemyEmployee : EnemyAI
     {
         if (CheckPathAndClearCheckers(CurrentChecker(), 1, typeof(PlayerController)) != -1)
         {
-            StartCoroutine(AtackCo(stats._attack, 3, 1, 2, FindAnyObjectByType<PlayerController>(), 1, "Punch"));
+            StartCoroutine(AtackCo(stats._attack, 3, 1, 1, FindAnyObjectByType<PlayerController>(), 1, "Punch"));
         }
         else
         {

@@ -5,7 +5,7 @@ using System.Collections;
 public class CharacterOnGround : BasicEntity
 {
     protected TurnManager turnManager;
-    bool isMoving = false, isAtacking = false;
+    protected bool isMoving = false, isAtacking = false;
     public Animator anim;
     public CharacterStats stats;
     private int actionsLeft;
