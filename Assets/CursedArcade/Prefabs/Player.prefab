@@ -187,6 +187,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   anim: {fileID: 0}
+  stats: {fileID: 0}
 --- !u!114 &1613652669232480616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +204,7 @@ MonoBehaviour:
   lifeMax: 100
   speedBase: 1
   attackBase: 7
+  damagePopupPrefab: {fileID: 818439670295732844, guid: 6baf59f86ecb57b4f9df6194e805d3b2, type: 3}
 --- !u!114 &968001859510618893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f812059b0620d34fa335b407ff8179b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
-  items: []
   healthKits: 0
 --- !u!114 &8435765512575312101
 MonoBehaviour:
