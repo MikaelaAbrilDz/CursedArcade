@@ -7,7 +7,7 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] private int lifeMax = 100;
     private int speed = 1;
     private int attack = 1;
-    public int speedBase, attackBase;
+    public int speedBase, attackBase, lifeMaxBase;
 
     [Header("Damage Popup")]
     [SerializeField] private GameObject damagePopupPrefab;
@@ -17,6 +17,7 @@ public class CharacterStats : MonoBehaviour
     {
         _speed = speedBase;
         _attack = attackBase;
+        _lifeMax = lifeMaxBase;
     }
 
     public int _life
@@ -28,16 +29,15 @@ public class CharacterStats : MonoBehaviour
 
         set
         {
-            int oldLife = life;
-
-            life = Mathf.Clamp(value, 0, lifeMax);
-
             //Mostrar popup de daño recibido mientras q sea mayor q 0
-            int damage = Mathf.Max(0, oldLife - life);
+            int damage = Mathf.Max(0, life - value);
             if (damage > 0)
             { 
                 ShowDamagePopup(damage);
             }
+
+            life = Mathf.Clamp(value, 0, lifeMax);
+
 
             if (life == 0)
             {

@@ -68,6 +68,7 @@ MonoBehaviour:
   speedBase: 1
   attackBase: 5
   lifeMaxBase: 20
+  damagePopupPrefab: {fileID: 5877492225800989637, guid: d2650135e284a864eb416f1a14103c65, type: 3}
 --- !u!1001 &7064105197243485451
 PrefabInstance:
   m_ObjectHideFlags: 0

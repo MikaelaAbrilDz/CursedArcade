@@ -205,6 +205,7 @@ MonoBehaviour:
   speedBase: 1
   attackBase: 7
   lifeMaxBase: 100
+  damagePopupPrefab: {fileID: 818439670295732844, guid: 6baf59f86ecb57b4f9df6194e805d3b2, type: 3}
 --- !u!114 &968001859510618893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +340,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 01fae93f-a383-4124-8e92-5d24c45758b3
     m_ActionName: 'Player/Atack_0[/Keyboard/k]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c0c65ed1-1eb0-482d-b9ee-4354f5a83316
+    m_ActionName: 'Player/Atack_1[/Keyboard/j]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
