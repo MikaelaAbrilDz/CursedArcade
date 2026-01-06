@@ -3,14 +3,26 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
     //STATS BÁSICAS DE CUALQUIER PERSONAJE
+    [SerializeField] private string characterName = "Enemigo";
     [SerializeField] private int life = 100;
     [SerializeField] private int lifeMax = 100;
-    private int speed = 1;
-    private int attack = 1;
+    [SerializeField] private int speed = 1;
+    [SerializeField] private int attack = 1;
+    
+    
     public int speedBase, attackBase, lifeMaxBase;
 
     [Header("Damage Popup")]
     [SerializeField] private GameObject damagePopupPrefab;
+
+
+    public string CharacterName => characterName;
+    public int Life => life;
+    public int LifeMax => lifeMax;
+    public int Speed => speed;
+    public int Attack => attack;
+
+
 
 
     private void Start()
