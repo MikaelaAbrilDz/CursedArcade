@@ -45,9 +45,9 @@ public class CharacterOnGround : BasicEntity
 
         SetPositionedChecker(true);
 
-        isMoving = false;
         anim.SetBool("isWalking", false);
         EndAction();
+        isMoving = false;
     }
     public virtual void StartTurn()
     {
@@ -78,8 +78,8 @@ public class CharacterOnGround : BasicEntity
             if (target != null) target.stats._life -= (int)(damage * bonusDamage);
             yield return new WaitForSeconds(duration);
         }
-        isAtacking = false;
         EndAction();
+        isAtacking = false;
     }
     protected void LookToIndex(int directionIndex)
     {

@@ -49,7 +49,7 @@ public class PlayerController : CharacterOnGround
     }
     public void OnAtack_0(InputAction.CallbackContext context)
     {
-        if (context.performed && !isAtacking)
+        if (turnManager.turnList[0] == GetComponent<CharacterOnGround>() && context.performed && !isAtacking)
         {
             CharacterOnGround target = null;
             float angle = transform.eulerAngles.y;
