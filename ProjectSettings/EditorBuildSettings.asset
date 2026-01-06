@@ -6,17 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/CursedArcade/Scenes/WinScene.unity
-    guid: 9658ab7b3b8f15644a79fd910e7f757c
+    path: Assets/CursedArcade/Scenes/Start.unity
+    guid: 79731376754f7c442a1f89a804cd9780
   - enabled: 1
     path: Assets/CursedArcade/Scenes/MikaTests.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/CursedArcade/Scenes/LoseScene.unity
-    guid: d0be72d734a52fa48a28edbf45602da0
+    guid: fa43bdf93c1500749848e1e83c7151aa
   - enabled: 1
-    path: Assets/CursedArcade/Scenes/StartScene.unity
-    guid: 56f061da7561fef4a82d1d47433b673f
+    path: Assets/CursedArcade/Scenes/WinScene.unity
+    guid: 33949b5374d885c45bdc189b14acdb1f
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 488510fa60aeace439315e2301ee81cd, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

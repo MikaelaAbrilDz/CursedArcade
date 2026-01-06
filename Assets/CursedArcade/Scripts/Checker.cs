@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Checker : MonoBehaviour
 {
-    public GameObject[] itemPrefab;
+    public GameObject[] itemPrefab, enemyPrefab;
     [SerializeField] LayerMask checkerMask;
     public BasicEntity positioned;
     public Checker[] sideCheckers = new Checker[4];
@@ -47,32 +47,42 @@ public class Checker : MonoBehaviour
         GameObject itemToSpawn;
 
 
-        if (probabilidad <= 0.18f)
+        if (probabilidad <= 0.2f)
         {
             itemToSpawn = itemPrefab[0];
         }
-        else if (probabilidad <= 0.38f)
+        else if (probabilidad <= 0.4f)
         {
             itemToSpawn = itemPrefab[1];
         }
-        else if (probabilidad <= 0.61f)
+        else if (probabilidad <= 0.5f)
         {
             itemToSpawn = itemPrefab[2];
         }
-        else if (probabilidad <= 0.81f)
+        else 
         {
             itemToSpawn = itemPrefab[3];
         }
-        else if (probabilidad <= 0.91f)
+
+        BasicEntity spawnedItem = Instantiate(itemToSpawn, transform.position, Quaternion.identity).GetComponent<BasicEntity>();
+        spawnedItem.SetPositionedChecker(true);
+    }
+    public void SpawnEnemy()
+    {
+        float probabilidad = Random.value;
+        GameObject enemyToSpawn;
+
+
+        if (probabilidad <= 0.3f)
         {
-            itemToSpawn = itemPrefab[4];
+            enemyToSpawn = enemyPrefab[0];
         }
-        else 
+        else
         {
-            itemToSpawn = itemPrefab[5];
+            enemyToSpawn = enemyPrefab[1];
         }
 
-            BasicEntity spawnedItem = Instantiate(itemToSpawn, transform.position, Quaternion.identity).GetComponent<BasicEntity>();
+        BasicEntity spawnedItem = Instantiate(enemyToSpawn, transform.position, Quaternion.identity).GetComponent<BasicEntity>();
         spawnedItem.SetPositionedChecker(true);
     }
 }

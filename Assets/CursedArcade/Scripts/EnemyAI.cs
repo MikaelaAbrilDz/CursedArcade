@@ -17,8 +17,9 @@ public class EnemyAI : CharacterOnGround
     {
         if (CheckPathAndClearCheckers(CurrentChecker(), 10, typeof(PlayerController)) != -1)
         {
-            if (!Move(nextMovement)) turnManager.PassTurn(this);
+            if (!Move(nextMovement)) EndAction();
         }
+        else EndAction();
     }
     protected void MoveAwayFromPlayer()
     {
@@ -28,15 +29,16 @@ public class EnemyAI : CharacterOnGround
             {
                 if (!Move((nextMovement + 1) % 4))
                 {
-                    if (!Move((nextMovement + 3) % 4)) turnManager.PassTurn(this);
+                    if (!Move((nextMovement + 3) % 4)) EndAction();
                 }
             }
         }
+        else EndAction();
     }
     protected int CheckPathAndClearCheckers(Checker startChecker, int stepsLeft, Type target)
     {
         CurrentChecker().searched = 99;
-        int a = CheckForPath(startChecker, stepsLeft, target);
+        int a = CheckForPath(startChecker, stepsLeft + 1, target); // Adds 1 to steps left to make values put in the original parameter more intuitive
         ClearCheckers();
         return a;
     }

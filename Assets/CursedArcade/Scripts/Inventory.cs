@@ -1,10 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.TextCore.Text;
 
 public class Inventory : MonoBehaviour
 {
-    public List<ObjectOnGround> items = new List<ObjectOnGround>();
-
     [SerializeField] private int healthKits = 0;   // Empiezas sin kits
 
     public int _healthKits
@@ -13,22 +12,30 @@ public class Inventory : MonoBehaviour
         set => healthKits = value;
     }
 
-    public void AddHealthKits(int amount)
+    public void AddHealthKit()
     {
-        healthKits += amount;
+        _healthKits += 1;
     }
-    public void AddItem(ObjectOnGround item)
+    public void AddPunch(int punchValue)
     {
-        items.Add(item);
+        PlayerController player = GetComponent<PlayerController>();
+        if (player.stats._attack - player.stats.attackBase < punchValue) player.stats._attack = player.stats.attackBase + punchValue;
     }
+    public void AddHelmet(int helmetValue)
+    {
+        PlayerController player = GetComponent<PlayerController>();
+        if (player.stats._lifeMax - player.stats.lifeMaxBase < helmetValue)
+        {
+            float percentageOfLife = Mathf.InverseLerp(0, player.stats._lifeMax, player.stats._life);
 
-    public void RemoveItem(ObjectOnGround item)
-    {
-        items.Remove(item);
-    }
+            player.stats._lifeMax = player.stats.lifeMaxBase + helmetValue;
 
-    public bool HasItem(string name)
+            player.stats._life = (int)(player.stats._lifeMax * percentageOfLife);
+        }
+    }
+    public void AddBoots(int bootsValue)
     {
-        return items.Exists(i => i.objectName == name);
+        PlayerController player = GetComponent<PlayerController>();
+        if (player.stats._speed - player.stats.speedBase < bootsValue) player.stats._speed = player.stats.speedBase + bootsValue;
     }
 }
