@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 611063408760278048}
   - component: {fileID: 3724275468350123645}
   - component: {fileID: 3818666227698280646}
+  - component: {fileID: -4032225607267195670}
+  - component: {fileID: -8881592905280068036}
   m_Layer: 0
   m_Name: EmployeeEnemy
   m_TagString: Untagged
@@ -63,12 +65,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e9eda8d8fd4c247b3e8ba09eae430b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  characterName: Empleado
   life: 50
   lifeMax: 50
+  speed: 1
+  attack: 1
   speedBase: 1
   attackBase: 8
   lifeMaxBase: 50
   damagePopupPrefab: {fileID: 5877492225800989637, guid: d2650135e284a864eb416f1a14103c65, type: 3}
+--- !u!114 &-4032225607267195670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477643259742422630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c062222a81bc9439ca12546b6617cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHover
+  popupPrefab: {fileID: 8228423228348562825, guid: a7ebbf9bc558a1741a6abfdb4b9e64e3, type: 3}
+--- !u!136 &-8881592905280068036
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477643259742422630}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.24
+  m_Height: 1.3646188
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.59460247, z: 0}
 --- !u!1001 &7064105197243485451
 PrefabInstance:
   m_ObjectHideFlags: 0

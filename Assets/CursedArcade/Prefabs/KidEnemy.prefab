@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 611063408760278048}
   - component: {fileID: 1705209482859419110}
   - component: {fileID: 2955808794412301201}
-  - component: {fileID: 4389143983910862475}
+  - component: {fileID: 8228196128081768157}
+  - component: {fileID: 5033024961986565906}
   m_Layer: 0
   m_Name: KidEnemy
   m_TagString: Untagged
@@ -51,7 +52,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   anim: {fileID: 0}
-  stats: {fileID: 0}
+  stats: {fileID: 2955808794412301201}
 --- !u!114 &2955808794412301201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,13 +65,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e9eda8d8fd4c247b3e8ba09eae430b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  characterName: "Ni\xF1o"
   life: 20
   lifeMax: 20
+  speed: 1
+  attack: 1
   speedBase: 1
   attackBase: 5
   lifeMaxBase: 20
   damagePopupPrefab: {fileID: 5877492225800989637, guid: d2650135e284a864eb416f1a14103c65, type: 3}
---- !u!136 &4389143983910862475
+--- !u!114 &8228196128081768157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477643259742422630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22c062222a81bc9439ca12546b6617cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHover
+  popupPrefab: {fileID: 8228423228348562825, guid: a7ebbf9bc558a1741a6abfdb4b9e64e3, type: 3}
+--- !u!136 &5033024961986565906
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,14 +102,14 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.18308806
-  m_Height: 0.7
+  m_Radius: 0.2137937
+  m_Height: 0.80308855
   m_Direction: 1
-  m_Center: {x: 0, y: 0.35, z: -0.01}
+  m_Center: {x: 0.0018699169, y: 0.36662865, z: 0.0020889044}
 --- !u!1001 &7064105197243485451
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,10 +118,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 611063408760278048}
     m_Modifications:
-    - target: {fileID: 1062303292210733664, guid: 87a7b985b15a4244091de35d7df9169a, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 8b058cbd991c83545b8425999ad2a052, type: 2}
     - target: {fileID: 5986958801767457440, guid: 87a7b985b15a4244091de35d7df9169a, type: 3}
       propertyPath: m_Name
       value: little_boy_B
