@@ -1,3 +1,16 @@
+Integrantes:
+
+Mika Ibáñez - MikaelaAbrilDz
+
+Raúl Bertullo - RaulBertullo
+
+Aroa Navarro - arnamo230
+
+Hugo Enríquez - RompeTibias
+
+María Belloch - mariabelloch
+
+
 El proyecto consiste en un juego al estilo Pokémon Mundo Misterioso, pero con una ambientación de Arcade y en 3D.
 
 Hay una serie de turnos y un mundo creado en base a casillas.
@@ -38,6 +51,8 @@ El player es el cubo verde y los enemigos son los niños.
 
 ### ObjectOnGround
 
+De esta clase heredan los objetos y contendrá funcionalidades genéricas a todos los objetos como podría ser recogerlos.
+
 ## Pathfinding e IA de enemigos
 
 Hay una sola IA de enemigo ahora mismo, que es la del niño (la idea es hacer 1 o 2 más).
@@ -73,3 +88,11 @@ Ambos spawnearán al principio de la partida mediante este script, que ahora mis
 ![](/ReadmeContent/Code_ObjSpawn.PNG)
 
 Esto spawnea un objeto en una de cada diez casillas (proporción por determinar).
+
+## Objetos
+
+Actualmente el juego cuenta con 2 objetos.
+    
+    Punch: Aumenta 0.2 los golpes
+    
+    HealthKit: Al activarse cura 20 de salud
