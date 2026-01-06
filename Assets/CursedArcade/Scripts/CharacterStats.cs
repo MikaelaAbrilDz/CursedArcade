@@ -51,12 +51,18 @@ public class CharacterStats : MonoBehaviour
             life = Mathf.Clamp(value, 0, lifeMax);
 
 
-            if (life == 0)
+            if (life == 0 && GetComponent<PlayerController>() == null)
             {
                 //MORIR
                 FindAnyObjectByType<TurnManager>().turnList.Remove(GetComponent<CharacterOnGround>());
                 FindAnyObjectByType<GameManager>().CheckEnemyNumber();
                 Destroy(gameObject);
+            }
+
+            if (life == 0 && GetComponent<PlayerController>() != null)
+            {
+                //MORIR
+                FindAnyObjectByType<GameManager>().LoseGame();
             }
 
         }
