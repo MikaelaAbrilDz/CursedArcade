@@ -1,20 +1,18 @@
 using TMPro;
 using UnityEngine;
 
-public class HelmetEntity : BasicInventoryItem, IItemPopupInfo
+public class HelmetEntity : BasicInventoryItem
 {
 
     [SerializeField] int lifeAdditionBase, lifeAdditionDesviation;
     private int lifeAddition = 0;
 
-    public string ItemName => "Casco";
-    public string StatName => "Vida máxima";
-    public int Amount => lifeAddition;
-
-
     private void Start()
     {
         lifeAddition = CalculateLifeAddition();
+
+        itemStat = "Vida máxima";
+        itemStatAmount = lifeAddition;
     }
     private int CalculateLifeAddition()
     {
@@ -26,6 +24,13 @@ public class HelmetEntity : BasicInventoryItem, IItemPopupInfo
     }
     public override void ItemToCharacter(CharacterOnGround character)
     {
-        if (character.stats._lifeMax - character.stats.lifeMaxBase < lifeAddition) character.stats._lifeMax = character.stats.lifeMaxBase + lifeAddition;
+        if (character.stats._lifeMax - character.stats.lifeMaxBase < lifeAddition)
+        {
+            float percentageOfLife = Mathf.InverseLerp(0, character.stats._lifeMax, character.stats._life);
+
+            character.stats._lifeMax = character.stats.lifeMaxBase + lifeAddition;
+
+            character.stats._life = (int)(character.stats._lifeMax * percentageOfLife);
+        }
     }
 }

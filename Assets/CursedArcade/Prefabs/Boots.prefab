@@ -113,6 +113,37 @@ CapsuleCollider:
   m_Height: 0.653772
   m_Direction: 1
   m_Center: {x: 0, y: -0.001206696, z: 0}
+--- !u!1 &5796719267846952730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2616355286311387019}
+  m_Layer: 0
+  m_Name: UI_Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2616355286311387019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5796719267846952730}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.561, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6280942999231160614}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5965934352636184344
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +178,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1537070422581805256}
+  - {fileID: 2616355286311387019}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2830754625723772391
@@ -178,6 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BootsEntity
   itemName: Boots
+  itemStat: 
+  itemStatAmount: 0
   speedAdditionBase: 2
   speedAdditionDesviation: 2
 --- !u!136 &6583771768404332617
@@ -216,3 +250,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemHover
   popupPrefab: {fileID: 8228423228348562825, guid: b5ab93bf3c1657441b00a9fd7b460cec, type: 3}
+  pos: {fileID: 2616355286311387019}

@@ -4,26 +4,26 @@ using UnityEngine;
 public class ItemHover : MonoBehaviour
 {
     [SerializeField] private GameObject popupPrefab;
+    [SerializeField] Transform pos;
 
-    private IItemPopupInfo info;
+    private ItemOnGround item;
     private GameObject popupInstance;
 
     private void Awake()
     {
-        info = GetComponent<IItemPopupInfo>();
+        item = GetComponent<ItemOnGround>();
     }
 
     private void OnMouseEnter()
     {
-        if (popupPrefab == null || info == null) return;
+        if (popupPrefab == null || item == null) return;
 
-        Vector3 pos = transform.position + Vector3.up * 2f;
-        popupInstance = Instantiate(popupPrefab, pos, Quaternion.identity);
+        popupInstance = Instantiate(popupPrefab, pos.position, Quaternion.identity);
 
         ItemWorldPopup popup = popupInstance.GetComponent<ItemWorldPopup>();
         if (popup != null)
         {
-            popup.Setup(info);
+            popup.Setup(item.item.itemName, item.item.itemStat, item.item.itemStatAmount);
         }
     }
 

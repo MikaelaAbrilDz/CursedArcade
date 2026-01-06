@@ -10201,10 +10201,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1613652669232480616, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
-      propertyPath: damagePopupPrefab
-      value: 
-      objectReference: {fileID: 818439670295732844, guid: 6baf59f86ecb57b4f9df6194e805d3b2, type: 3}
     - target: {fileID: 6121868258499668273, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -10248,18 +10244,6 @@ PrefabInstance:
     - target: {fileID: 7077294641913482496, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8435765512575312101, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8435765512575312101, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
-      value: c0c65ed1-1eb0-482d-b9ee-4354f5a83316
-      objectReference: {fileID: 0}
-    - target: {fileID: 8435765512575312101, guid: 19586ca1ed7aba44b91b6f0f94bafdf0, type: 3}
-      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
-      value: 'Player/Atack_1[/Keyboard/j]'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

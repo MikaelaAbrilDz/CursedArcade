@@ -1,13 +1,15 @@
 using UnityEngine;
 
-public class HealthKitEntity : BasicInventoryItem, IItemPopupInfo
+public class HealthKitEntity : BasicInventoryItem
 {
     
     private int amountToHeal;
-
-    public string ItemName => "Botiquín"; 
-    public string StatName => "Vida"; 
-    public int Amount => amountToHeal;
+    private void Awake()
+    {
+        itemName = "Botiquín";
+        itemStat = "Curación";
+        itemStatAmount = amountToHeal;
+    }
     public override void ItemToInventory(Inventory inv)
     {
         inv.AddHealthKit();

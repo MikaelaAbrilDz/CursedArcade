@@ -24,7 +24,14 @@ public class Inventory : MonoBehaviour
     public void AddHelmet(int helmetValue)
     {
         PlayerController player = GetComponent<PlayerController>();
-        if (player.stats._lifeMax - player.stats.lifeMaxBase < helmetValue) player.stats._lifeMax = player.stats.lifeMaxBase + helmetValue;
+        if (player.stats._lifeMax - player.stats.lifeMaxBase < helmetValue)
+        {
+            float percentageOfLife = Mathf.InverseLerp(0, player.stats._lifeMax, player.stats._life);
+
+            player.stats._lifeMax = player.stats.lifeMaxBase + helmetValue;
+
+            player.stats._life = (int)(player.stats._lifeMax * percentageOfLife);
+        }
     }
     public void AddBoots(int bootsValue)
     {

@@ -200,12 +200,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e9eda8d8fd4c247b3e8ba09eae430b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
+  characterName: Enemigo
   life: 100
   lifeMax: 100
+  speed: 1
+  attack: 1
   speedBase: 1
   attackBase: 7
   lifeMaxBase: 100
-  damagePopupPrefab: {fileID: 818439670295732844, guid: 6baf59f86ecb57b4f9df6194e805d3b2, type: 3}
+  damagePopupPrefab: {fileID: 5877492225800989637, guid: d2650135e284a864eb416f1a14103c65, type: 3}
 --- !u!114 &968001859510618893
 MonoBehaviour:
   m_ObjectHideFlags: 0

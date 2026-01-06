@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemOnGround : BasicEntity
 {
-    [SerializeField] BasicInventoryItem item;
+    public BasicInventoryItem item;
 
     // Llama a esto cuando un CharacterOnGround entra en la misma casilla
     public void PickUp(CharacterOnGround character)
