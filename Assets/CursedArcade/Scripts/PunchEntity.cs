@@ -1,10 +1,16 @@
 using TMPro;
 using UnityEngine;
 
-public class PunchEntity : BasicInventoryItem
+public class PunchEntity : BasicInventoryItem, IItemPopupInfo
 {
     [SerializeField] int attackAdditionBase, attackAdditionDesviation;
     private int attackAddition = 0;
+
+    public string ItemName => "Puñetazo";
+    public string StatName => "Ataque";
+    public int Amount => attackAddition;
+
+
     private void Start()
     {
         attackAddition = CalculateAttackAddition();

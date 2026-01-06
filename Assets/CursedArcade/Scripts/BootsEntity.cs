@@ -1,10 +1,17 @@
 using TMPro;
 using UnityEngine;
 
-public class BootsEntity : BasicInventoryItem
+public class BootsEntity : BasicInventoryItem, IItemPopupInfo
 {
     [SerializeField] int speedAdditionBase, speedAdditionDesviation;
     private int speedAddition = 0;
+
+
+    public string ItemName => "Botas";
+    public string StatName => "Velocidad";
+    public int Amount => speedAddition;
+
+
     private void Start()
     {
         speedAddition = CalculateSpeedAddition();
