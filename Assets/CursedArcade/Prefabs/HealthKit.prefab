@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1537070422581805256}
   - component: {fileID: 5521435526535335352}
   - component: {fileID: 4220116981384323155}
+  - component: {fileID: 8869358886344810387}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -89,6 +90,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &8869358886344810387
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5119433401068521870}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.6
+  m_Height: 2.1533508
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.028604269, z: 0}
 --- !u!1 &5965934352636184344
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +125,7 @@ GameObject:
   - component: {fileID: 7992229237841407289}
   - component: {fileID: 777872621208052485}
   - component: {fileID: 6826298786316679298}
+  - component: {fileID: -689231788336603759}
   m_Layer: 0
   m_Name: HealthKit
   m_TagString: Untagged
@@ -153,7 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthKitEntity
   itemName: Health Kit
-  ammountToHeal: 25
 --- !u!136 &6826298786316679298
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -177,3 +201,16 @@ CapsuleCollider:
   m_Height: 0.629151
   m_Direction: 1
   m_Center: {x: 0, y: -0.013517201, z: 0}
+--- !u!114 &-689231788336603759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5965934352636184344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6ec3048e313494d90a855243faa0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemHover
+  popupPrefab: {fileID: 8228423228348562825, guid: b5ab93bf3c1657441b00a9fd7b460cec, type: 3}

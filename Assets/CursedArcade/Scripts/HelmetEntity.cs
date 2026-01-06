@@ -1,10 +1,17 @@
 using TMPro;
 using UnityEngine;
 
-public class HelmetEntity : BasicInventoryItem
+public class HelmetEntity : BasicInventoryItem, IItemPopupInfo
 {
+
     [SerializeField] int lifeAdditionBase, lifeAdditionDesviation;
     private int lifeAddition = 0;
+
+    public string ItemName => "Casco";
+    public string StatName => "Vida máxima";
+    public int Amount => lifeAddition;
+
+
     private void Start()
     {
         lifeAddition = CalculateLifeAddition();

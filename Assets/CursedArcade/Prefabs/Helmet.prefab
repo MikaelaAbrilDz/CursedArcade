@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 2830754625723772391}
   - component: {fileID: 6878288766532219441}
   - component: {fileID: 2277295309432893294}
+  - component: {fileID: -9037498478227890161}
   m_Layer: 0
   m_Name: Helmet
   m_TagString: Untagged
@@ -178,3 +179,16 @@ CapsuleCollider:
   m_Height: 0.629151
   m_Direction: 1
   m_Center: {x: 0, y: -0.013517201, z: 0}
+--- !u!114 &-9037498478227890161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5965934352636184344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6ec3048e313494d90a855243faa0f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemHover
+  popupPrefab: {fileID: 8228423228348562825, guid: b5ab93bf3c1657441b00a9fd7b460cec, type: 3}
