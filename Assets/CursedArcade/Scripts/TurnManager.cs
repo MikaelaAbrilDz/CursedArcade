@@ -9,6 +9,8 @@ public class TurnManager : MonoBehaviour
     {
         turnList.Add(FindAnyObjectByType<PlayerController>());
         foreach (var enemy in FindObjectsByType<EnemyAI>(FindObjectsSortMode.None)) turnList.Add(enemy);
+
+        turnList[0].SetActionsForTurn();
     }
     private void Update()
     {
@@ -18,6 +20,11 @@ public class TurnManager : MonoBehaviour
     {
         turnList.Remove(turnPasser);
         turnList.Add(turnPasser);
+        turnList[0].SetActionsForTurn();
+        StartNextTurn();
+    }
+    public void StartNextTurn()
+    {
         turnList[0].StartTurn();
     }
 }
