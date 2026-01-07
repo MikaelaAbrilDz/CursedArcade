@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361fe2d9a1faee044a5d27014f4882bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PunchEntity
-  itemName: Punch
+  itemName: Guantes de boxeo
   itemStat: 
   itemStatAmount: 0
   attackAdditionBase: 5

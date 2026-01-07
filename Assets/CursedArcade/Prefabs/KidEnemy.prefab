@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25e9eda8d8fd4c247b3e8ba09eae430b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterStats
-  characterName: Enemigo
+  characterName: "Cr\xEDo"
   life: 20
   lifeMax: 20
   speed: 1

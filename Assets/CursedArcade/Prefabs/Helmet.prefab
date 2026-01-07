@@ -154,8 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4884e234ac0c178458e2b7218b417e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HelmetEntity
-  itemName: Helmet
-  itemStat: 
+  itemName: Casco
+  itemStat: "Vida m\xE1xima"
   itemStatAmount: 0
   lifeAdditionBase: 25
   lifeAdditionDesviation: 10

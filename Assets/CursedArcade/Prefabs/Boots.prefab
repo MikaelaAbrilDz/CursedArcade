@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a4966012e767649aa152ad8cfe3c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BootsEntity
-  itemName: Boots
+  itemName: Zapatillas
   itemStat: 
   itemStatAmount: 0
   speedAdditionBase: 2
