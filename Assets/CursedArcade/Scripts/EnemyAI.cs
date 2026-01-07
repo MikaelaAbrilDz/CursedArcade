@@ -80,7 +80,26 @@ public class EnemyAI : CharacterOnGround
             }
         }
         nextMovement = firstStepDirection;
+
+
+
         return maxStepsLeft;
     }
 
+    int DecideDirection(int[] allStepsLeft, int first, int end)
+    {
+        if (first == end)
+        {
+            return allStepsLeft[first];
+        }
+
+        int mid = (first + end) / 2;
+
+        int left = DecideDirection(allStepsLeft, first, mid);
+        int right = DecideDirection(allStepsLeft, mid + 1, end);
+
+        return Mathf.Max(left, right);
+    }
+
 }
+

@@ -61,6 +61,31 @@ El coste temporal también está determinado por el número de pasos máximos, p
 debido a que las búsquedas nunca tienen más de 10 pasos y teniendo en cuenta que al haber pasillos y no ser una rejilla de casillas sin agujeros, muchas casillas no tienen 4 casillas adyacentes de verdad,
 el coste es asumible. Sería orden de N^2.
 
+## Método iterativo pasado a recursivo
+
+Se ha usado una parte del algoritmo de pathfinding que era iterativa (el decidir entre las cuatro direcciones iniciales, cuál ha devuelto un mejor resultado para usar esa dirección como siguiente paso).
+
+![](/ReadmeContent/Code_MetodoIterativo.PNG)
+
+Este era el método iterativo original, que está dentro del script EnemyAI en el método CheckForPath. Aunque CheckForPath es un método recursivo, esta parte es iterativa.
+
+![](/ReadmeContent/Code_MetodoRecursivo.PNG)
+
+Y este es el método recursivo.
+
+El objetivo en ambos casos es coger el resultado que ha dado el pathfinding en cada dirección y escoger aquel con un valor de pasos sobrantes mayor.
+
+El método iterativo tiene un coste temporal de orden de n, aunque a nivel práctico siempre va a recorrer el bucle 4 veces, ya que no hay más direcciones iniciales. Por otro lado, el coste espacial es
+orden de 1.
+
+El método recursivo tiene un coste temporal de orden de n, pero también tiene un coste espacial de orden de n.
+
+Teniendo en cuenta que en este caso siempre van a haber 4 direcciones y que incluso si el sistema permitiese movimiento diagonal estaríamos en tan solo 8 direcciones, no tiene demasiado sentido usar
+el método recursivo, ya que pierde legibilidad y resulta más confuso.
+
+Podría tener más sentido si hubiese muchas direcciones en algún juego que funcionase por nodos interconectados y que además cada nodo tuviese un número variable de conexiones, pero para algo tan simple
+resulta más intuitivo un acercamiento iterativo.
+
 ## Casillas
 
 Cada casilla referencia las 4 casillas que la rodean horizontal y verticalmente al inicio de la partida. Para hacer esto, se usa este método dentro del script Checker, incluido en cada una de las casillas.
