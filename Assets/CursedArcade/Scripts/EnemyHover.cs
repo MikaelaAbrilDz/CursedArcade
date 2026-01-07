@@ -25,6 +25,10 @@ public class EnemyHover : MonoBehaviour
 
     private void OnMouseExit()
     {
+        DestroyPopup();
+    }
+    public void DestroyPopup()
+    {
         if (popupInstance != null)
         {
             Destroy(popupInstance);

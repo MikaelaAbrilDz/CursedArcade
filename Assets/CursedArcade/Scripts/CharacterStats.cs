@@ -17,10 +17,6 @@ public class CharacterStats : MonoBehaviour
 
 
     public string CharacterName => characterName;
-    public int Life => life;
-    public int LifeMax => lifeMax;
-    public int Speed => speed;
-    public int Attack => attack;
 
 
 
@@ -56,6 +52,7 @@ public class CharacterStats : MonoBehaviour
                 //MORIR
                 FindAnyObjectByType<TurnManager>().turnList.Remove(GetComponent<CharacterOnGround>());
                 FindAnyObjectByType<GameManager>().CheckEnemyNumber();
+                GetComponent<EnemyHover>().DestroyPopup();
                 Destroy(gameObject);
             }
 

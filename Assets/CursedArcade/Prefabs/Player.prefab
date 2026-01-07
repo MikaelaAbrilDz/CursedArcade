@@ -344,7 +344,19 @@ MonoBehaviour:
     m_ActionId: 01fae93f-a383-4124-8e92-5d24c45758b3
     m_ActionName: 'Player/Atack_0[/Keyboard/k]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3709447326678874319}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnAtack_1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: c0c65ed1-1eb0-482d-b9ee-4354f5a83316
     m_ActionName: 'Player/Atack_1[/Keyboard/j]'
   m_NeverAutoSwitchControlSchemes: 0

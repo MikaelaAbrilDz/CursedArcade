@@ -63,20 +63,28 @@ public class CharacterOnGround : BasicEntity
         if (actionsLeft <= 0) turnManager.PassTurn(this);
         else turnManager.StartNextTurn();
     }
-    protected IEnumerator AtackCo(int averageBaseDamage, float desviation, float bonusDamage, int amountOfHits, CharacterOnGround target, float duration, string animation)
+    protected void Atack(int averageBaseDamage, float desviation, float bonusDamage, int amountOfHits, CharacterOnGround target, float duration, string animation)
+    {
+        StartCoroutine(AtackCo(averageBaseDamage, desviation, bonusDamage, amountOfHits, new CharacterOnGround[] { target }, duration, animation));
+    }
+    protected void Atack(int averageBaseDamage, float desviation, float bonusDamage, int amountOfHits, CharacterOnGround[] target, float duration, string animation)
+    {
+        StartCoroutine(AtackCo(averageBaseDamage, desviation, bonusDamage, amountOfHits, target, duration, animation));
+    }
+    private IEnumerator AtackCo(int averageBaseDamage, float desviation, float bonusDamage, int amountOfHits, CharacterOnGround[] target, float duration, string animation)
     {
         isAtacking = true;
 
-        if (target != null) transform.LookAt(target.transform);
+        if (target.Length == 1 && target[0] != null) transform.LookAt(target[0].transform);
 
         for (int i = 0; i < amountOfHits; i++)
         {
             anim.Play(animation);
-            //DESVÍA MEDIANTE LA DISTRIBUCIÓN NORMAL EL DAÑO PROMEDIO CON LA DESVIACIÓN
-            int damage = (int)(averageBaseDamage + desviation * Mathf.Sqrt(-2f * Mathf.Log(Random.value)) * Mathf.Cos(2f * Mathf.PI * Random.value));
-            //USA EL DAÑO RESULTANTE MULTIPLICADO POR EL BONUS
-            if (target != null) target.stats._life -= (int)(damage * bonusDamage);
             yield return new WaitForSeconds(duration);
+            //DESVÍA MEDIANTE LA DISTRIBUCIÓN NORMAL EL DAÑO PROMEDIO CON LA DESVIACIÓN
+            int damage = (int)Mathf.Max((averageBaseDamage + desviation * Mathf.Sqrt(-2f * Mathf.Log(Random.value)) * Mathf.Cos(2f * Mathf.PI * Random.value)), 0);
+            //USA EL DAÑO RESULTANTE MULTIPLICADO POR EL BONUS
+            if (target != null) foreach (CharacterOnGround individualTarget in target) if (individualTarget != null) individualTarget.stats._life -= (int)(damage * bonusDamage);
         }
         EndAction();
         isAtacking = false;

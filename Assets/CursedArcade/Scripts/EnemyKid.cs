@@ -6,7 +6,7 @@ public class EnemyKid : EnemyAI
     {
         if (CheckPathAndClearCheckers(CurrentChecker(), 1, typeof(PlayerController)) != -1)
         {
-            StartCoroutine(AtackCo(stats._attack, 3, 1, 2, FindAnyObjectByType<PlayerController>(), 1, "Punch"));
+            Atack(stats._attack, 3, 1, 2, FindAnyObjectByType<PlayerController>(), 0.7f, "Punch");
         }
         else if (CheckPathAndClearCheckers(CurrentChecker(), 3, typeof(EnemyKid)) != -1)
         {

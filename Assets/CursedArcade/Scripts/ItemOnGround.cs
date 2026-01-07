@@ -23,6 +23,7 @@ public class ItemOnGround : BasicEntity
         SetPositionedChecker(false);
 
         // Destruir el objeto del suelo
+        GetComponent<ItemHover>().DestroyPopup();
         Destroy(gameObject);
     }
 }

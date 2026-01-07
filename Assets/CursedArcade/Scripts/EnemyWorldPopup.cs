@@ -10,7 +10,7 @@ public class EnemyWorldPopup : MonoBehaviour
     public void Setup(CharacterStats stats)
     {
         nameText.text = stats.CharacterName;
-        speedText.text = "Velocidad: " + stats.Speed;
-        attackText.text = "Ataque: " + stats.Attack;
+        speedText.text = "Velocidad: " + stats._speed;
+        attackText.text = "Ataque: " + stats._attack;
     }
 }
